@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="77413082-d0e4-43c3-8bba-08a8137aff6d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/signup/Templates/SignUpPage/SignUpPage.html" afterDir="false" />
+    <list default="true" id="4346fe58-c168-4c57-a666-4ee45166cae1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/codes/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/codes/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/signup/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/signup/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/signup/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/signup/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/signup/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/signup/views.py" afterDir="false" />
     </list>
@@ -29,7 +29,9 @@
   </component>
   <component name="JupyterTrust" id="9509b560-bb45-4c59-989a-250afa5076f6" />
   <component name="ProjectId" id="1hETdj7Z0lpd064FC7iaff0bK3f" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
