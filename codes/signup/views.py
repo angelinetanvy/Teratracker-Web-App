@@ -1,12 +1,13 @@
-from django.shortcuts import render
-from django.contrib.auth import login, authenticate
-from django.contrib.auth.forms import UserCreationForm
+from django.shortcuts import render, redirect
+from .forms import SignUpForm
 # Create your views here.
 def signup(response):
     if response == "POST":
-        form = UserCreationForm(response.POST)
+        form = SignUpForm(response.POST)
         if form.is_valid():
             form.save()
+
+        return redirect("/home")
     else:
-        form = UserCreationForm()
+        form = SignUpForm()
     return render(response, "signup/signup.html", {"form": form})
