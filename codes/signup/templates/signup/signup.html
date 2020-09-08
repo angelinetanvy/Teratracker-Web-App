@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>TERBUL SIGN UP</title>
 </head>
 <body>
-$END$
+    <form method="POST" class="form-group">
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit" class="btn btn-success">Sign Up</button>
+    </form>
 </body>
 </html>
