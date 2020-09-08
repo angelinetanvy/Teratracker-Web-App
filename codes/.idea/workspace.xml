@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4346fe58-c168-4c57-a666-4ee45166cae1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/signup/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/signup/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/signup/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/signup/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/signup/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/signup/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/signup/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -76,12 +77,14 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="77413082-d0e4-43c3-8bba-08a8137aff6d" name="Default Changelist" comment="" />
+      <changelist id="4346fe58-c168-4c57-a666-4ee45166cae1" name="Default Changelist" comment="" />
       <created>1599575342140</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1599575342140</updated>
       <workItem from="1599575343409" duration="3865000" />
+      <workItem from="1599584166522" duration="1963000" />
+      <workItem from="1599586153443" duration="1115000" />
     </task>
     <servers />
   </component>
