@@ -15,7 +15,7 @@ class SignUpForm(UserCreationForm):
 
     class Meta:
         model = User
-        fields = ["username", "password1", "password2", "first_name", "last_name", "date_joined", "email"]
+        fields = ["username", "password1", "password2"]
 
 class UsernameField(forms.CharField):
     def to_python(self, value):
@@ -51,7 +51,7 @@ class SignUpFormTerbul(forms.ModelForm):
 
     class Meta:
         model = User
-        fields = ("username",)
+        fields = ["username", "password1", "password2", "first_name", "last_name", "date_joined", "email"]
         field_classes = {'username': UsernameField}
 
     def __init__(self, *args, **kwargs):
