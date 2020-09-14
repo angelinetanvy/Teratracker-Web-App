@@ -1,16 +1,38 @@
-{% block title %}
-Login Here
-{% endblock %}
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TERBUL LOGIN</title>
+</head>
 {% load crispy_forms_tags %}
-
-{% block content %}
-<div class="container">
-    <form method="post" class="form-group">
-        {% csrf_token %}
-        {{form|crispy}}
-        <button type="submit" class="btn btn-success">Sign In</button>
-        <p>Don't have an account? <a href="/signup">Sign up here</a></p>
-    </form>
-</div>
-{% endblock %}
+<body>
+<style>
+   *{
+       text-align: center;
+   }
+   .container{
+       border-style: solid;
+       border-color: black;
+       background-color: #f2f2f2;
+       padding-top: 20px;
+       padding-bottom: 30px;
+       margin-top: 20px;
+       margin-left: 620px;
+       margin-right: 620px;
+   }
+   #forget{
+        color: red;
+    }
+</style>
+    <div class="container">
+        <h3>Login Here</h3>
+        <form method="post" class="form-group">
+            {% csrf_token %}
+            {{form|crispy}}
+            <button type="submit" class="btn btn-success">Sign In</button>
+            <p id="forget" ><a href="https://photricity.com/flw/ajax/">Forget password?</a></p>
+            <p>Don't have an account? <a href="/signup"><b>Sign up here</b></a></p>
+        </form>
+    </div>
+</body>
+</html>
