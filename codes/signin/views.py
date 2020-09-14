@@ -6,6 +6,8 @@ def signin(response):
     if response.method == "POST":
         form = AuthenticationForm(data=response.POST)
         if form.is_valid():
+            user = form.get_user()
+            login(response, user)
             return redirect("/")
     else:
         form = AuthenticationForm()
