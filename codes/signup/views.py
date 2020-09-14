@@ -7,7 +7,7 @@ from django.contrib.auth import login, authenticate
 def signup(response):
     if response.method == "POST":
         form = forms.SignUpForm(data = response.POST)
-        # form = UserCreationForm(data = response.POST)
+        # form = forms.testForm(data = response.POST)
         if form.is_valid():
             form.save()
             username = form.cleaned_data.get('username')
@@ -17,5 +17,5 @@ def signup(response):
             return redirect("/signin/")
     else:
         form = forms.SignUpForm()
-        # form = UserCreationForm()
+        # form = forms.testForm()
     return render(response, "signup/signup.html", {"form": form})
