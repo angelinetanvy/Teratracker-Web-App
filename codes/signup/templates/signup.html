@@ -1,10 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>TERBUL SIGN UP</title>
-</head>
+{% extends 'base.html' %}
+
 {% load crispy_forms_tags %}
+
+{% block content %}
 <body>
     <h3>Sign Up Page</h3>
     <form method="POST" class="form-group">
@@ -13,4 +11,5 @@
         <button type="submit" class="btn btn-success">Sign Up</button>
     </form>
 </body>
+{% endblock %}
 </html>

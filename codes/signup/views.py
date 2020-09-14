@@ -14,4 +14,4 @@ def signup(response):
     else:
         form = forms.SignUpForm()
         # form = forms.testForm()
-    return render(response, "signup/signup.html", {"form": form})
+    return render(response, "signup.html", {"form": form})

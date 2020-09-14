@@ -1,11 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>TERBUL LOGIN</title>
-</head>
+{% extends 'base.html' %}
+
 {% load crispy_forms_tags %}
 <body>
+{% block content %}
 <style>
    *{
        text-align: center;
@@ -34,5 +32,5 @@
             <p>Don't have an account? <a href="/signup"><b>Sign up here</b></a></p>
         </form>
     </div>
+{% endblock %}
 </body>
-</html>
