@@ -1,17 +1,16 @@
-{% load static %}
-
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <h1> Dasar alamak bikin ga tidur </h1>
-    <form class="logout-link" action = "{% url 'signout' %}" method="post">
-        {% csrf_token %}
-        <button type="submit">Logout</button>
-    </form>
+    <title> TERBUL™ tracker </title>
+    <!--<form class="logout-link" action = "{% url 'signout' %}" method="post">-->
+        <!--{% csrf_token %}-->
+        <!--<button type="submit">Logout</button>-->
+    <!--</form>-->
 </head>
 <body>
-    {% block content %}
+    {% block base_content %}
     {% endblock %}
 </body>
 </html>
