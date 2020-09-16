@@ -7,3 +7,4 @@ def index(response):
 
 def out(response):
     return render(response,"out.html")
+
