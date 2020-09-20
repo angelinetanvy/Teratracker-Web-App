@@ -11,7 +11,7 @@ def signin(response):
         if form.is_valid():
             user = form.get_user()
             login(response, user)
-            return landing_page(response)
+            return redirect("/dashboard")
     else:
         form = AuthenticationForm()
     return render(response, "signin.html", {"form": form})
@@ -26,9 +26,9 @@ def profile(response):
         arg = {"user": response.user}
         return render(response, "account.html", arg)
     else:
-        return signin(response)
+        return redirect("/signin")
 
-def landing_page(response):
+def dashboard(response):
     if response.user.is_staff:
         return render(response, "teacher.html")
     else:
