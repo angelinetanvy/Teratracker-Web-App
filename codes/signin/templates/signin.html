@@ -72,6 +72,9 @@
         <form method="post" class="form-group">
             {% csrf_token %}
             {{form|crispy}}
+            {% if request.GET.next %}
+                <input type="hidden" name="next" value="{{ request.GET.next }}">
+            {% endif %}
             <p> </p>
             <button type="submit" class="btn btn-success" 
             style="font-size:18px;font-family: tahoma;background-color:#343b81;border-style: none;width: 40%;height: 5%; box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 10px 0 rgba(0,0,0,0.5);border-radius: 8px;">Sign In</button>

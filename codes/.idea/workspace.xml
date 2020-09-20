@@ -5,11 +5,8 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/codes/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/codes/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/urls.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/main/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signin/templates/student.html" beforeDir="false" afterPath="$PROJECT_DIR$/signin/templates/student.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signin/templates/teacher.html" beforeDir="false" afterPath="$PROJECT_DIR$/signin/templates/teacher.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signin/urls.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/signin/templates/signin.html" beforeDir="false" afterPath="$PROJECT_DIR$/signin/templates/signin.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/signin/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/signin/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -96,6 +93,7 @@
       <workItem from="1600615391023" duration="373000" />
       <workItem from="1600616238876" duration="1423000" />
       <workItem from="1600620046398" duration="2101000" />
+      <workItem from="1600622647590" duration="816000" />
     </task>
     <servers />
   </component>
