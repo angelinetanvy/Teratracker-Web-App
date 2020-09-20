@@ -6,5 +6,5 @@ def index(response):
     return render(response,"main.html")
 
 def out(response):
-    return render(response,"out.html")
+    return render(response, "out.html")
 

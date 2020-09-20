@@ -2,8 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4346fe58-c168-4c57-a666-4ee45166cae1" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/signin/templates/student.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/signin/templates/teacher.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/signin/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/signin/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/signin/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/signin/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -17,8 +22,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -88,6 +93,7 @@
       <workItem from="1599810071452" duration="202000" />
       <workItem from="1600611353519" duration="349000" />
       <workItem from="1600615391023" duration="373000" />
+      <workItem from="1600616238876" duration="1423000" />
     </task>
     <servers />
   </component>

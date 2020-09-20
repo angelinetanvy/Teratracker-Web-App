@@ -1,0 +1,40 @@
+{% extends 'headnav.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<body>
+<style>
+    #title{
+        font-size: 30px;
+        text-align: center;
+        margin-top: 70px;
+    }
+    .container{
+        /*background-color: #b3b7bb;*/
+        margin-top: 60px;
+        margin-left: 300px;
+    }
+    .data{
+        background-color: #D3D3D3;
+        display: inline-block;
+        width: 300px;
+        font-size: 18px;
+        margin-top: -10px;
+        margin-bottom: 20px;
+    }
+</style>
+{% include 'loggedin.html' %}
+<p id="title"><b>Student Account</b></p>
+<div class="container">
+    <p style="font-size: 30px; text-transform: uppercase; margin-bottom: -25px"><b>{{user}}</b></p>
+    <p style="font-size: 25px; margin-bottom: 50px">Student</p>
+    <p></p>
+    <p style="font-size: 18px">First name :</p>
+    <p class = "data">{{user.first_name}}</p>
+    <p style="font-size: 18px">Last name  :</p>
+    <p class = "data">{{user.last_name}}</p>
+    <p style="font-size: 18px">Email      :</p>
+    <p class = "data">{{user.email}}</p>
+</div>
+</body>
+{% endblock %}

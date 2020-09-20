@@ -11,7 +11,7 @@ def signin(response):
         if form.is_valid():
             user = form.get_user()
             login(response, user)
-            return profile(response)
+            return landing_page(response)
     else:
         form = AuthenticationForm()
     return render(response, "signin.html", {"form": form})
@@ -19,7 +19,7 @@ def signin(response):
 def signout(response):
     if response.method == "POST":
         logout(response)
-        return redirect("/out/")
+        return redirect("/signin")
 
 def profile(response):
     if response.user.is_authenticated:
@@ -27,3 +27,9 @@ def profile(response):
         return render(response, "account.html", arg)
     else:
         return signin(response)
+
+def landing_page(response):
+    if response.user.is_staff:
+        return render(response, "teacher.html")
+    else:
+        return render(response, "student.html")
