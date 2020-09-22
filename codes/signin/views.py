@@ -17,7 +17,6 @@ def signin(response):
     return render(response, "signin.html", {"form": form})
 
 def signout(response):
-    if response.method == "POST":
-        logout(response)
-        return redirect("/signin")
+    logout(response)
+    return redirect("/signin")
 

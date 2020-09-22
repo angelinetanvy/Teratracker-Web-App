@@ -3,30 +3,134 @@
 <head>
     <meta charset="UTF-8">
     <title>Sidebar Dashboard</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
 </head>
+
 <body>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            font-family: Roboto, sans-serif;
+        }
+
+        header{
+            position: fixed;
+            background: lightgray;
+            padding: 20px;
+            width: 100%;
+            height: 30px;
+        }
+
+        .center h3{
+            color: black;
+            margin: 0;
+            text-transform: uppercase;
+            font-size: 22px;
+            font-weight: 900;
+        }
+
+        .sidebar{
+            background: lightgray;
+            margin-top: 70px;
+            padding-top: 30px;
+            position: fixed;
+            left: 0;
+            width: 250px;
+            height: 100%;
+            transition: 0.5s;
+            transition-property: left;
+        }
+
+        {#.sidebar .profile_image{#}
+            {#width: 100px;#}
+            {#height: 100px;#}
+            {#border-radius: 100px;#}
+            {#margin-bottom: 10px;#}
+        {##}
+
+        .sidebar h4{
+            color: black;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+
+        .sidebar a{
+            color: black;
+            display: block;
+            width: 100%;
+            line-height: 60px;
+            text-decoration: none;
+            padding-left: 40px;
+            box-sizing: border-box;
+            transition: 0.5s;
+            transition-property: background;
+        }
+
+        .sidebar a:hover{
+            background: darkgray;
+        }
+
+        .sidebar i{
+            padding-right: 10px;
+        }
+
+        label #sidebar_btn{
+            z-index: 1;
+            color: darkgray;
+            position: fixed;
+            cursor: pointer;
+            left: 20px;
+            font-size: 20px;
+            margin: 5px 0;
+            transition: 0.5s;
+            transition-property: color;
+        }
+
+        label #sidebar_btn:hover{
+            color: black;
+        }
+
+        #check:checked ~ .sidebar{
+            left: -190px;
+        }
+
+        #check:checked ~ .sidebar a span{
+            display: none;
+        }
+
+        #check:checked ~ .sidebar a{
+            font-size: 20px;
+            margin-left: 170px;
+            width: 80px;
+        }
+
+        .content{
+            margin-left: 250px;
+            background: gray;
+        }
+
+        #check{display: none}
+    </style>
+
     <input type="checkbox" id="check">
     <header>
         <label for="check">
             <i class="fas fa-bars" id="sidebar_btn"></i>
         </label>
         <div class="center">
-            <h3 style="text-align: center">Welcome User</h3>
+            <h3 style="text-align: center">Welcome {{ User }}</h3>
         </div>
     </header>
     <div class="sidebar">
         <center>
-            <img src="pngwave.png" class="profile_image">
-            <h4>User Name</h4>
+{#            <img src="pngwave.png" class="profile_image">#}
+            <h4 id="greetings">User Name</h4>
         </center>
         <a href="#" id="projects"><i class="fas fa-project-diagram"></i><span>My Projects</span></a>
-        <a href="#" id="signout"><i class="fas fa-sign-out-alt"></i><span>Sign Out</span></a>
+        <a href="{% url 'signout' %}" id="signout"><i class="fas fa-sign-out-alt"></i><span>Sign Out</span></a>
     </div>
 
-    <div class="content">
-
-    </div>
+    <div class="content"></div>
 </body>
 </html>

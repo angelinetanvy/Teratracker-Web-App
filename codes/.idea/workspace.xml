@@ -3,11 +3,16 @@
   <component name="ChangeListManager">
     <list default="true" id="4346fe58-c168-4c57-a666-4ee45166cae1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/codes/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/templates/newindex.html" beforeDir="false" afterPath="$PROJECT_DIR$/main/templates/newindex.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/templates/out.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/templates/pngwave.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/templates/style.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/main/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signin/templates/signin.html" beforeDir="false" afterPath="$PROJECT_DIR$/signin/templates/signin.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/signin/templates/student.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/signin/templates/teacher.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/signin/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/signin/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/signup/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/signup/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,7 +47,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/AppData/Local/Programs/Python/Python38" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/signin/templates" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -50,6 +55,11 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Work\Monash\FIT2101\Assignment\codes\signin\templates" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="Codes" type="Python.DjangoServer" factoryName="Django server">
@@ -94,6 +104,7 @@
       <workItem from="1600616238876" duration="1423000" />
       <workItem from="1600620046398" duration="2101000" />
       <workItem from="1600622647590" duration="816000" />
+      <workItem from="1600783637808" duration="5548000" />
     </task>
     <servers />
   </component>

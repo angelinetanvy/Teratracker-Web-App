@@ -1,9 +1,0 @@
-{% extends 'base.html' %}
-
-{% block content %}
-<h1> You have been signed out </h1>
-<form  action="{% url 'index' %}" method="post">
-    {% csrf_token %}
-    <button type="submit"> Masih Rusak Ini gabisa ke home </button>
-</form>
-{% endblock %}
