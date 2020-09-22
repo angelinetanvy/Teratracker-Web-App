@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4346fe58-c168-4c57-a666-4ee45166cae1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/main/templates/dashboard.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main/templates/pngwave.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/templates/newindex.html" beforeDir="false" afterPath="$PROJECT_DIR$/main/templates/newbase.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/templates/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/main/templates/dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/templates/newbase.html" beforeDir="false" afterPath="$PROJECT_DIR$/main/templates/newbase.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/signin/templates/account.html" beforeDir="false" afterPath="$PROJECT_DIR$/signin/templates/account.html" afterDir="false" />
     </list>
@@ -103,6 +102,7 @@
       <workItem from="1600622647590" duration="816000" />
       <workItem from="1600783637808" duration="5548000" />
       <workItem from="1600790419935" duration="5670000" />
+      <workItem from="1600797149997" duration="2137000" />
     </task>
     <servers />
   </component>

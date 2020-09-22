@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def index(response):
-    return render(response, "main.html")
+    return redirect("/dashboard")
 
 
 @login_required(login_url="/signin")
