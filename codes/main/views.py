@@ -10,13 +10,23 @@ def index(response):
 
 @login_required(login_url="/signin")
 def profile(response):
-    arg = {"user": response.user}
+    first_name = response.user.first_name.capitalize
+    full_name = response.user.get_full_name
+    if response.user.is_staff:
+        user_type = "Teacher"
+    else:
+        user_type = "Student"
+    arg = {"user": response.user, "UserType": user_type, "FirstName": first_name, "FullName": full_name}
     return render(response, "account.html", arg)
 
 
 @login_required(login_url="/signin")
 def dashboard(response):
+    first_name = response.user.first_name.capitalize
+    full_name = response.user.get_full_name
     if response.user.is_staff:
-        return render(response, "newindex.html", {"User": "Teacher"})
+        arg = {"UserType": "Teacher", "FirstName": first_name, "FullName": full_name}
+        return render(response, "dashboard.html", arg)
     else:
-        return render(response, "newindex.html", {"User": "Student"})
+        arg = {"UserType": "Student", "FirstName": first_name, "FullName": full_name}
+        return render(response, "dashboard.html", arg)

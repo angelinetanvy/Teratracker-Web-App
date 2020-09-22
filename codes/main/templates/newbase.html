@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Sidebar Dashboard</title>
+    <title>{% block title %}Tracker Dashboard{% endblock %}</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
 </head>
 
@@ -42,18 +42,13 @@
             transition-property: left;
         }
 
-        {#.sidebar .profile_image{#}
-            {#width: 100px;#}
-            {#height: 100px;#}
-            {#border-radius: 100px;#}
-            {#margin-bottom: 10px;#}
-        {##}
-
-        .sidebar h4{
-            color: black;
-            margin-top: 0;
-            margin-bottom: 20px;
+        .sidebar .profile_image {
+            width: 100px;
+            height: 100px;
+            border-radius: 100px;
+            margin-bottom: 10px;
         }
+
 
         .sidebar a{
             color: black;
@@ -65,6 +60,13 @@
             box-sizing: border-box;
             transition: 0.5s;
             transition-property: background;
+        }
+
+        .sidebar #user{
+            color: black;
+            margin-top: 0;
+            margin-bottom: 20px;
+            padding-left: 0;
         }
 
         .sidebar a:hover{
@@ -119,18 +121,22 @@
             <i class="fas fa-bars" id="sidebar_btn"></i>
         </label>
         <div class="center">
-            <h3 style="text-align: center">Welcome {{ User }}</h3>
+            <h3 style="text-align: center">{{ UserType }} {{ FirstName }}</h3>
         </div>
     </header>
     <div class="sidebar">
-        <center>
-{#            <img src="pngwave.png" class="profile_image">#}
-            <h4 id="greetings">User Name</h4>
-        </center>
-        <a href="#" id="projects"><i class="fas fa-project-diagram"></i><span>My Projects</span></a>
+        <a href="{% url 'profile' %}" id="user">
+            <center>
+                <img src="./pngwave.png" class="profile_image">
+                <h4>{{ FullName }}</h4>
+            </center>
+        </a>
+        <a href="{% url 'dashboard' %}" id="projects"><i class="fas fa-project-diagram"></i><span>My Projects</span></a>
         <a href="{% url 'signout' %}" id="signout"><i class="fas fa-sign-out-alt"></i><span>Sign Out</span></a>
     </div>
 
     <div class="content"></div>
+    {% block content %}
+    {% endblock %}
 </body>
 </html>

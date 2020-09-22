@@ -1,17 +1,20 @@
-{% extends 'headnav.html' %}
+{% extends 'newbase.html' %}
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Profile{% endblock %}</title>
+</head>
 {% load crispy_forms_tags %}
-
 {% block content %}
 <body>
 <style>
     #title{
         font-size: 30px;
         text-align: center;
-        margin-top: 70px;
+        margin-top: 0;
     }
     .container{
         /*background-color: #b3b7bb;*/
-        margin-top: 60px;
+        margin-top: 50px;
         margin-left: 300px;
     }
     .data{
@@ -23,7 +26,6 @@
         margin-bottom: 20px;
     }
 </style>
-{% include 'loggedin.html' %}
 <p id="title"><b>Your Account</b></p>
 <div class="container">
     <p style="font-size: 30px; text-transform: uppercase; margin-bottom: -25px"><b>{{user}}</b></p>

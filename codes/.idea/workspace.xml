@@ -2,17 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4346fe58-c168-4c57-a666-4ee45166cae1" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/main/templates/dashboard.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main/templates/pngwave.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/templates/newindex.html" beforeDir="false" afterPath="$PROJECT_DIR$/main/templates/newindex.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/templates/out.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/templates/pngwave.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/templates/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/templates/newindex.html" beforeDir="false" afterPath="$PROJECT_DIR$/main/templates/newbase.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signin/templates/student.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/signin/templates/teacher.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/signin/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/signin/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signup/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/signup/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/signin/templates/account.html" beforeDir="false" afterPath="$PROJECT_DIR$/signin/templates/account.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +43,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/signin/templates" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/main/templates" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -58,6 +54,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Work\Monash\FIT2101\Assignment\codes\main\templates" />
       <recent name="D:\Work\Monash\FIT2101\Assignment\codes\signin\templates" />
     </key>
   </component>
@@ -105,6 +102,7 @@
       <workItem from="1600620046398" duration="2101000" />
       <workItem from="1600622647590" duration="816000" />
       <workItem from="1600783637808" duration="5548000" />
+      <workItem from="1600790419935" duration="5670000" />
     </task>
     <servers />
   </component>
@@ -156,9 +154,9 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824/-1920.0.1536.824@0.0.1536.824" timestamp="1599578880209" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1599575767569">
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1600795583113">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824/-1920.0.1536.824@0.0.1536.824" timestamp="1599575767569" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824/-1920.0.1536.824@0.0.1536.824" timestamp="1600795583113" />
   </component>
 </project>
