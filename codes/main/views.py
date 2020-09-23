@@ -18,14 +18,3 @@ def profile(response):
     arg = {"user": response.user, "UserType": user_type, "FirstName": first_name, "FullName": full_name}
     return render(response, "account.html", arg)
 
-
-@login_required(login_url="/signin")
-def dashboard(response):
-    first_name = response.user.first_name.capitalize
-    full_name = response.user.get_full_name
-    if response.user.is_staff:
-        arg = {"UserType": "Teacher", "FirstName": first_name, "FullName": full_name}
-        return render(response, "dashboard.html", arg)
-    else:
-        arg = {"UserType": "Student", "FirstName": first_name, "FullName": full_name}
-        return render(response, "dashboard.html", arg)
