@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'main.apps',
     'signup.apps.SignupConfig',
     'signin.apps.SigninConfig',
+    'projects.apps.ProjectsConfig',
     'crispy_forms'
 ]
 

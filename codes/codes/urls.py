@@ -18,6 +18,7 @@ from django.urls import include, path
 from main import views as main_views
 from signin import views as signin_views
 from signup import views as signup_views
+from projects import views as project_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -27,5 +28,6 @@ urlpatterns = [
     path('signout/', signin_views.signout, name='signout'),
     path('dashboard/', main_views.dashboard, name='dashboard'),
     path('profile/', main_views.profile, name='profile'),
+    path('dashboard/create-project/', project_views.create_project, name='create-project'),
     path('', include("django.contrib.auth.urls"))
 ]
