@@ -29,15 +29,13 @@ def dashboard(response):
     full_name = response.user.get_full_name
     projects = Project.objects.all().order_by('due_date')
 
-    if response.user.is_staff:
-        UserType, Authorization = "Teacher", "true"
-    else:
-        UserType, Authorization = "Student", "false"
-
-    arg = {"UserType": UserType,
-           "FirstName": first_name,
+    arg = {"FirstName": first_name,
            "FullName": full_name,
-           "Projects": projects,
-           "Authorized": Authorization}
+           "Projects": projects}
 
-    return render(response, "dashboard.html", arg)
+    if response.user.is_staff:
+        return render(response, "teacherdashboard.html", arg)
+    else:
+        return render(response, "studentdashboard.html", arg)
+
+
