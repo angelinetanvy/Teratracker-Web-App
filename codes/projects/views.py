@@ -31,7 +31,8 @@ def dashboard(response):
 
     arg = {"FirstName": first_name,
            "FullName": full_name,
-           "Projects": projects}
+           "Projects": projects,
+           'User': response.user}
 
     if response.user.is_staff:
         return render(response, "teacherdashboard.html", arg)

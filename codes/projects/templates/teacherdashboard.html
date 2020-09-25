@@ -23,8 +23,8 @@
                 <h2><a href="#">{{ project.title }}</a></h2>
                 <h3>Supervised By: {{ project.supervisor }}</h3>
                 <h4>Due: {{ project.due_date }} {{ project.due_time }}</h4>
-            </div>
-        {% endif %}
+                </div>
+            {% endif %}
     {% endfor %}
     <form class="create-project" action = "{% url 'create-project' %}" method="post">
         {% csrf_token %}

@@ -7,4 +7,5 @@ class Project(models.Model):
     due_date = models.DateField()
     due_time = models.TimeField()
     supervisor = models.ForeignKey(settings.AUTH_USER_MODEL, default=None, null=True, on_delete=models.SET_NULL)
+    students = models.ForeignKey(settings.AUTH_USER_MODEL, default=None, null=True, on_delete=models.SET_NULL, related_name="students")
     # tasks =
