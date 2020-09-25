@@ -8,7 +8,7 @@ class DateInput(forms.DateInput):
 class CreateProjects(forms.ModelForm):
     class Meta:
         model = models.Project
-        fields = ['title', 'due_date', 'due_time', 'students']
+        fields = ['title', 'due_date', 'due_time']
         students = forms.ModelChoiceField(queryset=User.objects.all())
         widgets = {
             'due_date': DateInput()
