@@ -1,10 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="4346fe58-c168-4c57-a666-4ee45166cae1" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/projects/templates/ProjectInfo.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/projects/templates/assignstudents.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/codes/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/codes/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/projects/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projects/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/projects/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projects/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/projects/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/templates/teacherdashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/projects/templates/teacherdashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/projects/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,6 +120,7 @@
       <workItem from="1601038255000" duration="608000" />
       <workItem from="1601039113871" duration="787000" />
       <workItem from="1601039963555" duration="2561000" />
+      <workItem from="1601043219203" duration="14037000" />
     </task>
     <servers />
   </component>
@@ -161,9 +172,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824/-1920.0.1536.824@0.0.1536.824" timestamp="1599578880209" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1600795583113">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="-1489" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1601056244695">
+      <screen x="-1920" y="0" width="1536" height="824" />
     </state>
+    <state x="-1489" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824/-1920.0.1536.824@-1920.0.1536.824" timestamp="1601056244695" />
     <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824/-1920.0.1536.824@0.0.1536.824" timestamp="1600795583113" />
   </component>
 </project>

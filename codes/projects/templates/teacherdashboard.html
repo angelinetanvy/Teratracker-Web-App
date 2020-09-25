@@ -12,23 +12,25 @@
         margin-top: 70px;
         margin-left: 300px;
     }
-
 </style>
 {% block header %} Teacher {{ FirstName }} {% endblock %}
 <div class="container">
     <h1 id="Temp">PROJECTS</h1>
     {% for project in Projects %}
-            {% if User == project.supervisor %}
-                <div class="project">
-                <h2><a href="#">{{ project.title }}</a></h2>
-                <h3>Supervised By: {{ project.supervisor }}</h3>
-                <h4>Due: {{ project.due_date }} {{ project.due_time }}</h4>
-                </div>
-            {% endif %}
+            <div class="project">
+            <h2><a href="{% url 'project-info' %}">{{ project.title }}</a></h2>
+            <h3>Supervised By: {{ project.supervisor }}</h3>
+            <h4>Due: {{ project.due_date }} {{ project.due_time }}</h4>
+            </div>
     {% endfor %}
     <form class="create-project" action = "{% url 'create-project' %}" method="post">
         {% csrf_token %}
         <button type="submit">Create Project</button>
+    </form>
+
+    <form class="assign-students" action = "{% url 'assign-students' %}" method="post">
+        {% csrf_token %}
+        <button type="submit">Add Students to Project</button>
     </form>
 
 </div>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends "newbase.html" %}
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Project Info{% endblock %}</title>
+</head>
+{% block content %}
+<body>
+    <style>
+        .container{
+            margin-top: 70px;
+            margin-left: 300px;
+        }
+    </style>
+    {% block header %} {{ ProjectTitle }} Info {% endblock %}
+    <div class="container">
+        {{ Info }}
+    </div>
+</body>
+{% endblock %}
+</html>

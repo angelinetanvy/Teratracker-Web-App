@@ -25,18 +25,31 @@ def create_project(response):
 
 @login_required(login_url="/signin")
 def dashboard(response):
-    first_name = response.user.first_name.capitalize
-    full_name = response.user.get_full_name
-    projects = Project.objects.all().order_by('due_date')
-
-    arg = {"FirstName": first_name,
-           "FullName": full_name,
-           "Projects": projects,
-           'User': response.user}
-
     if response.user.is_staff:
-        return render(response, "teacherdashboard.html", arg)
+        projects = Project.objects.filter(supervisor=response.user).order_by('due_date')
+        template = "teacherdashboard.html"
     else:
-        return render(response, "studentdashboard.html", arg)
+        projects = Project.objects.all().order_by('due_date')   # Filter need to be applied here
+        template = "studentdashboard.html"
 
+    arg = {"FirstName": response.user.first_name.capitalize,
+           "FullName": response.user.get_full_name,
+           "Projects": projects}
+    return render(response, template, arg)
 
+@login_required(login_url="/signin")
+def project_info(response):
+    return render(response, "ProjectInfo.html")
+
+@login_required(login_url="/signin")
+def assign_students(response):
+    if response.method == 'POST':
+        form = forms.AssignStudents(response.POST, response.FILES, user=response.user)
+
+        if form.is_valid():
+            form.save()
+            return redirect("/dashboard/assign-students")
+    else:
+        form = forms.AssignStudents(user=response.user)
+    ctx = {"form": form}
+    return render(response, "assignstudents.html", ctx)
