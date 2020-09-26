@@ -1,22 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-{% extends "newbase.html" %}
+{% extends 'newbase.html' %}
 <head>
     <meta charset="UTF-8">
-    <title>{% block title %}Project Info{% endblock %}</title>
+    <title>{% block title %}Tracker Dashboard{% endblock %}</title>
 </head>
 {% block content %}
 <body>
-    <style>
-        .container{
-            margin-top: 70px;
-            margin-left: 300px;
-        }
-    </style>
-    {% block header %} {{ ProjectTitle }} Info {% endblock %}
-    <div class="container">
-        {{ Info }}
+<style>
+    .container{
+        margin-top: 70px;
+        margin-left: 300px;
+    }
+</style>
+{% block header %} Teacher {{ FirstName }} {% endblock %}
+<div class="container">
+    <div class="project">
+    <h2><a>{{ project }}</a></h2>
+    <h3>Supervised By: {{ FirstName }}</h3>
+    <!-- <h4>Due: {{ project.due_date }} {{ project.due_time }}</h4> -->
     </div>
+</div>
 </body>
 {% endblock %}
 </html>

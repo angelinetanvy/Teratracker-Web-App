@@ -46,8 +46,13 @@ def dashboard(response):
     return render(response, template, arg)
 
 @login_required(login_url="/signin")
-def project_info(response):
-    return render(response, "ProjectInfo.html")
+def project_info(response,project):
+    print(Project.objects.filter())
+    arg = {"FirstName": response.user.first_name.capitalize,
+           "FullName": response.user.get_full_name,
+           "Project" : project,
+          }
+    return render(response, "ProjectInfo.html", arg)
 
 @login_required(login_url="/signin")
 def assign_students(response):
