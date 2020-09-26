@@ -29,7 +29,7 @@ urlpatterns = [
     path('dashboard/', project_views.dashboard, name='dashboard'),
     path('profile/', main_views.profile, name='profile'),
     path('dashboard/create-project/', project_views.create_project, name='create-project'),
-    path('dashboard/project-info/', project_views.project_info, name='project-info'),
+    path('dashboard/project-info/<str:project>/', project_views.project_info, name='project-info'),
     path('dashboard/assign-students/', project_views.assign_students, name='assign-students'),
     path('', include("django.contrib.auth.urls"))
 ]

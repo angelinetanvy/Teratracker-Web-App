@@ -16,9 +16,6 @@ class Project(models.Model):
     def __str__(self):
         return str(self.title) + "-" + str(self.supervisor)
 
-    def getTitle(self):
-        return str(self.title)
-
 # Student in Project
 class ProjectStudents(models.Model):
     student = models.ForeignKey(User, default=None, on_delete=models.CASCADE)

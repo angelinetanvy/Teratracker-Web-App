@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.db import IntegrityError
 from . import forms
-from .models import Project
+from .models import Project, ProjectStudents
 
 # Create your views here.
 @login_required(login_url="/signin")
@@ -47,10 +47,17 @@ def dashboard(response):
 
 @login_required(login_url="/signin")
 def project_info(response,project):
-    print(Project.objects.filter())
+    students = []
+    project = Project.objects.filter(title=project)[0]
+    projectStudents = ProjectStudents.objects.filter(project=project)
+    if (len(projectStudents)>0):
+        for i in projectStudents:
+            students.append(i.student.first_name+" "+i.student.last_name) 
+
     arg = {"FirstName": response.user.first_name.capitalize,
            "FullName": response.user.get_full_name,
            "Project" : project,
+           "Students": students
           }
     return render(response, "ProjectInfo.html", arg)
 

@@ -15,10 +15,14 @@
 </style>
 {% block header %} Teacher {{ FirstName }} {% endblock %}
 <div class="container">
-    <div class="project">
-    <h2><a>{{ project }}</a></h2>
-    <h3>Supervised By: {{ FirstName }}</h3>
-    <!-- <h4>Due: {{ project.due_date }} {{ project.due_time }}</h4> -->
+    <div class="Project">
+        <h2><a>{{ Project.title }}</a></h2>
+        <h3>Supervised By: {{ FirstName }}</h3>
+        <h4>Due: {{ Project.due_date }} {{ Project.due_time }}</h4>
+        <h4>Students:</h4>
+        {% for student in Students %}
+            <h5>{{student}}</h5>
+        {% endfor %}
     </div>
 </div>
 </body>
