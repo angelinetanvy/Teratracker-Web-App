@@ -7,10 +7,9 @@
     <list default="true" id="4346fe58-c168-4c57-a666-4ee45166cae1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/templates/newbase.html" beforeDir="false" afterPath="$PROJECT_DIR$/main/templates/newbase.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projects/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/projects/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projects/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/projects/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projects/templates/create_project.html" beforeDir="false" afterPath="$PROJECT_DIR$/projects/templates/create_project.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/templates/ProjectInfo.html" beforeDir="false" afterPath="$PROJECT_DIR$/projects/templates/ProjectInfo.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/templates/studentdashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/projects/templates/studentdashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/templates/teacherdashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/projects/templates/teacherdashboard.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projects/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/projects/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -119,6 +118,7 @@
       <workItem from="1601039963555" duration="2561000" />
       <workItem from="1601043219203" duration="14037000" />
       <workItem from="1601108084729" duration="7623000" />
+      <workItem from="1601139385756" duration="1273000" />
     </task>
     <servers />
   </component>

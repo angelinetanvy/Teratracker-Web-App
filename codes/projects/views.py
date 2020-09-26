@@ -4,6 +4,7 @@ from django.db import IntegrityError
 from . import forms
 from .models import Project, ProjectStudents
 
+
 # Create your views here.
 @login_required(login_url="/signin")
 def create_project(response):
@@ -31,13 +32,14 @@ def create_project(response):
         ctx = {'form': form, 'FullName': response.user.get_full_name}
     return render(response, "create_project.html", ctx)
 
+
 @login_required(login_url="/signin")
 def dashboard(response):
     if response.user.is_staff:
         projects = Project.objects.filter(supervisor=response.user).order_by('due_date')
         template = "teacherdashboard.html"
     else:
-        projects = Project.objects.all().order_by('due_date')   # Filter need to be applied here
+        projects = Project.objects.all().order_by('due_date')  # Filter need to be applied here
         template = "studentdashboard.html"
 
     arg = {"FirstName": response.user.first_name.capitalize,
@@ -45,21 +47,30 @@ def dashboard(response):
            "Projects": projects}
     return render(response, template, arg)
 
+
 @login_required(login_url="/signin")
-def project_info(response,project):
+def project_info(response, project):
     students = []
     project = Project.objects.filter(title=project)[0]
     projectStudents = ProjectStudents.objects.filter(project=project)
-    if (len(projectStudents)>0):
+
+    if response.user.is_staff:
+        AccountType = "Teacher"
+    else:
+        AccountType = "Student"
+
+    if len(projectStudents) > 0:
         for i in projectStudents:
-            students.append(i.student.first_name+" "+i.student.last_name) 
+            students.append(i.student.first_name + " " + i.student.last_name)
 
     arg = {"FirstName": response.user.first_name.capitalize,
            "FullName": response.user.get_full_name,
-           "Project" : project,
-           "Students": students
-          }
+           "Project": project,
+           "Students": students,
+           "AccountType": AccountType
+           }
     return render(response, "ProjectInfo.html", arg)
+
 
 @login_required(login_url="/signin")
 def assign_students(response):
