@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
+from django.db import IntegrityError
 from . import forms
 from .models import Project
 
@@ -11,9 +12,16 @@ def create_project(response):
             form = forms.CreateProjects(response.POST, response.FILES)
             if form.is_valid():
                 # save project to db
-                instance = form.save(commit=False)
-                instance.supervisor = response.user
-                instance.save()
+                # form.save()
+                try:
+                    instance = form.save(commit=False)
+                    instance.supervisor = response.user
+                    instance.save()
+                except IntegrityError:
+                    ctx = {'form': form, 'FullName': response.user.get_full_name,
+                           'err': 'Project Title Already Exists'}
+                    return render(response, "create_project.html", ctx)
+
                 return redirect('/dashboard')
         else:
             form = forms.CreateProjects()
@@ -51,5 +59,5 @@ def assign_students(response):
             return redirect("/dashboard/assign-students")
     else:
         form = forms.AssignStudents(user=response.user)
-    ctx = {"form": form}
+    ctx = {"FullName": response.user.get_full_name, "form": form}
     return render(response, "assignstudents.html", ctx)

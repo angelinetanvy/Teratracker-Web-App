@@ -1,10 +1,10 @@
 from django import forms
-from. import models
+from . import models
 from django.contrib.auth.models import User
-from django.contrib.auth import get_user
 
 class DateInput(forms.DateInput):
     input_type = 'date'
+
 
 class CreateProjects(forms.ModelForm):
     class Meta:
