@@ -5,6 +5,7 @@ from . import forms
 from .models import Project, ProjectStudents, Task, TaskStudents
 from django.contrib.auth.models import User
 
+
 # Create your views here.
 @login_required(login_url="/signin")
 def create_project(response):
@@ -39,7 +40,12 @@ def dashboard(response):
         projects = Project.objects.filter(supervisor=response.user).order_by('due_date')
         template = "teacherdashboard.html"
     else:
-        projects = Project.objects.all().order_by('due_date')  # Filter need to be applied here
+        projects = []
+        projectStudents = ProjectStudents.objects.filter(student=response.user)
+        if len(projectStudents) > 0:
+            for item in projectStudents:
+                projects.append(item.project)
+        projects.sort(key=lambda project: project.due_date)
         template = "studentdashboard.html"
 
     arg = {"FirstName": response.user.first_name.capitalize,
@@ -75,6 +81,7 @@ def project_info(response, project):
     response.session['project_id'] = project.title
     return render(response, "ProjectInfo.html", arg)
 
+
 @login_required(login_url="/signin")
 def assign_students(response):
     if response.method == 'POST':
@@ -88,6 +95,7 @@ def assign_students(response):
     ctx = {"FullName": response.user.get_full_name, "form": form}
     return render(response, "assignstudents.html", ctx)
 
+
 @login_required(login_url="/signin")
 def create_task(response):
     project_id = response.session["project_id"]
@@ -96,16 +104,16 @@ def create_task(response):
         form.specify(project_id)
         if form.is_valid():
             form.save()
-            return redirect('/dashboard')
+            return redirect('/dashboard/project-info/' + project_id + '/')
     else:
         form = forms.CreateTask()
         form.specify(project_id)
-    arg = { "form": form }
+    arg = {"form": form}
 
-    return render(response,"create_task.html",arg)
+    return render(response, "create_task.html", arg)
+
 
 def display_task(project_id):
-
     task_display = []
     task = Task.objects.filter(sourceproject=project_id)
 
@@ -114,32 +122,35 @@ def display_task(project_id):
 
     return task_display
 
+
 @login_required(login_url="/signin")
-def task_info(response,task):
+def task_info(response, task):
     members = []
     prop = []
     task = Task.objects.filter(taskname=task)[0]
 
     task_members = TaskStudents.objects.filter(task_id=task.id).values_list('student_id')
-    task_time = TaskStudents.objects.filter(task_id=task.id).values_list('time',flat=True)
+    task_time = TaskStudents.objects.filter(task_id=task.id).values_list('time', flat=True)
     total_tasktime = 0
 
     for i in range(len(task_time)):
-        total_tasktime+= int(str(task_time[i]))
+        total_tasktime += int(str(task_time[i]))
 
     for i in range(len(task_members)):
-        memberProportion = round(int(str(task_time[i]))/total_tasktime * 100,2)
+        memberProportion = round(int(str(task_time[i])) / total_tasktime * 100, 2)
         prop.append(memberProportion)
         members.append(str(User.objects.get(id=task_members[i][0])) + " (" + str(task_time[i]) + " hours) (" + str(memberProportion) + "%)")
+
     data = zip(members, prop)
     arg = {
-        "Task" : task,
-        "Size" : range(len(task_members)),
-        "Data" : data
+        "Task": task,
+        "Size": range(len(task_members)),
+        "Data": data
     }
     response.session['project_id'] = str(task.sourceproject)
     response.session['task'] = task.id
-    return render(response,'TaskInfo.html',arg)
+    return render(response, 'TaskInfo.html', arg)
+
 
 @login_required(login_url="/signin")
 def assign_members(response):
