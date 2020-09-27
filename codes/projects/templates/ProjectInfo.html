@@ -22,7 +22,7 @@
         <h4>Students:</h4>
         {% for student, time in Data %}
             <h5>- {{student}}</h5>
-            <h4 style="background-color:yellow; width: calc(100% * {{time}} / 110);">0</h4>
+            <h4 style="background-color:yellow; width: calc(100% * {{time}} / 110);">|</h4>
         {% endfor %}
         <h3> Tasks: </h3>
         {% for t in Tasks %}
