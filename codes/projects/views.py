@@ -5,9 +5,6 @@ from . import forms
 from .models import Project, ProjectStudents, Task, TaskStudents
 from django.contrib.auth.models import User
 
-globalTask = 0 
-globalProject = 0
-
 # Create your views here.
 @login_required(login_url="/signin")
 def create_project(response):
@@ -56,8 +53,6 @@ def project_info(response, project):
     students = []
     project = Project.objects.filter(title=project)[0]
     projectStudents = ProjectStudents.objects.filter(project=project)
-    global globalProject
-    globalProject = project.id
 
     task = display_task(project.id)
 
@@ -77,6 +72,7 @@ def project_info(response, project):
            "AccountType": AccountType,
            "Task": task
            }
+    response.session['project_id'] = project.title
     return render(response, "ProjectInfo.html", arg)
 
 @login_required(login_url="/signin")
@@ -94,17 +90,22 @@ def assign_students(response):
 
 @login_required(login_url="/signin")
 def create_task(response):
+    project_id = response.session["project_id"]
     if response.method == 'POST':
         form = forms.CreateTask(response.POST, response.FILES)
+        form.specify(project_id)
         if form.is_valid():
             form.save()
             return redirect('/dashboard')
     else:
         form = forms.CreateTask()
+        form.specify(project_id)
     arg = { "form": form }
+
     return render(response,"create_task.html",arg)
 
 def display_task(project_id):
+
     task_display = []
     task = Task.objects.filter(sourceproject=project_id)
 
@@ -115,11 +116,8 @@ def display_task(project_id):
 
 @login_required(login_url="/signin")
 def task_info(response,task):
-
     members = []
     task = Task.objects.filter(taskname=task)[0]
-    global globalTask
-    globalTask = task.id
 
     task_members = User.objects.filter(pk__in=TaskStudents.objects.filter(task_id=task.id).values_list('student_id'))
     task_time = TaskStudents.objects.filter(task_id=task.id).values_list('time',flat=True)
@@ -131,22 +129,22 @@ def task_info(response,task):
         "Task" : task,
         "Members" : members
     }
+    response.session['project_id'] = str(task.sourceproject)
+    response.session['task'] = task.id
     return render(response,'TaskInfo.html',arg)
 
 @login_required(login_url="/signin")
 def assign_members(response):
-
-    if globalProject == 0:
-        return redirect("/dashboard/")
-
+    project_id = response.session["project_id"]
+    task_id = response.session["task"]
     if response.method == 'POST':
         form = forms.AssignMembers(response.POST, response.FILES, user=response.user)
-        form.specify(globalProject)
+        form.specify(task_id, project_id)
         if form.is_valid():
             form.save()
             return redirect("/dashboard/assign-members")
     else:
         form = forms.AssignMembers(user=response.user)
-        form.specify(globalProject)
+        form.specify(task_id, project_id)
     arg = {"FullName": response.user.get_full_name, "form": form}
     return render(response, "assign_members.html", arg)
