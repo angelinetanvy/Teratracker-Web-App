@@ -56,7 +56,9 @@ def dashboard(response):
 
 @login_required(login_url="/signin")
 def project_info(response, project):
+    student_names = []
     students = []
+    times = []
     project = Project.objects.filter(title=project)[0]
     projectStudents = ProjectStudents.objects.filter(project=project)
 
@@ -69,12 +71,20 @@ def project_info(response, project):
 
     if len(projectStudents) > 0:
         for i in projectStudents:
-            students.append(i.student.first_name + " " + i.student.last_name)
+            student_names.append(i.student.get_full_name())
+            students.append(i.student)
+
+    for student in students:
+        total_time = 0
+        studentTasks = TaskStudents.objects.filter(student=student)
+        for task in studentTasks:
+            print(task)
 
     arg = {"FirstName": response.user.first_name.capitalize,
            "FullName": response.user.get_full_name,
            "Project": project,
-           "Students": students,
+           "Students": student_names,
+           # "Times": times,
            "AccountType": AccountType,
            "Task": task
            }

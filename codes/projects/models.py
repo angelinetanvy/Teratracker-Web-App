@@ -32,7 +32,7 @@ class ProjectStudents(models.Model):
 class Task(models.Model):
     taskname = models.CharField(max_length=50)
     taskdesc = models.TextField(max_length=500)
-    sourceproject= models.ForeignKey(Project, default=None, on_delete=models.SET_DEFAULT)
+    sourceproject = models.ForeignKey(Project, default=None, on_delete=models.SET_DEFAULT)
     taskdone = models.BooleanField(default=False)
 
     class Meta:
