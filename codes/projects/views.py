@@ -117,17 +117,25 @@ def display_task(project_id):
 @login_required(login_url="/signin")
 def task_info(response,task):
     members = []
+    prop = []
     task = Task.objects.filter(taskname=task)[0]
 
-    task_members = User.objects.filter(pk__in=TaskStudents.objects.filter(task_id=task.id).values_list('student_id'))
+    task_members = TaskStudents.objects.filter(task_id=task.id).values_list('student_id')
     task_time = TaskStudents.objects.filter(task_id=task.id).values_list('time',flat=True)
+    total_tasktime = 0
+
+    for i in range(len(task_time)):
+        total_tasktime+= int(str(task_time[i]))
 
     for i in range(len(task_members)):
-        members.append(str(task_members[i]) + " " + str(task_time[i]))
-
+        memberProportion = round(int(str(task_time[i]))/total_tasktime * 100,2)
+        prop.append(memberProportion)
+        members.append(str(User.objects.get(id=task_members[i][0])) + " (" + str(task_time[i]) + " hours) (" + str(memberProportion) + "%)")
+    data = zip(members, prop)
     arg = {
         "Task" : task,
-        "Members" : members
+        "Size" : range(len(task_members)),
+        "Data" : data
     }
     response.session['project_id'] = str(task.sourceproject)
     response.session['task'] = task.id
