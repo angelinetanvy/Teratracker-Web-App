@@ -30,11 +30,11 @@ urlpatterns = [
     path('profile/', main_views.profile, name='profile'),
     
     path('dashboard/create-project/', project_views.create_project, name='create-project'),
-    path('dashboard/project-info/<str:project>/', project_views.project_info, name='project-info'),
+    path('dashboard/project-info/<int:project>/', project_views.project_info, name='project-info'),
     path('dashboard/assign-students/', project_views.assign_students, name='assign-students'),
 
     path('dashboard/create-task/', project_views.create_task, name='create-task'),
-    path('dashboard/task-info/<str:task>/', project_views.task_info, name='task-info'),
+    path('dashboard/task-info/<int:task>/', project_views.task_info, name='task-info'),
     path('dashboard/assign-members/', project_views.assign_members, name='assign-members'),
     
     path('', include("django.contrib.auth.urls"))

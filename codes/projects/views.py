@@ -60,10 +60,10 @@ def project_info(response, project):
     students = []
     times = []
     prop = []
-    project = Project.objects.filter(title=project)[0]
+    project = Project.objects.filter(pk=project)[0]
     projectStudents = ProjectStudents.objects.filter(project=project)
-
-    tasks = display_task(project.id)
+    tasks = Task.objects.filter(sourceproject=project.id)
+    # tasks = display_task(project.id)
 
     if response.user.is_staff:
         AccountType = "Teacher"
@@ -84,9 +84,11 @@ def project_info(response, project):
         times.append(total_time)
 
     total_time = sum(times)
-    if total_time > 0:
-        for i in range(len(times)):
+    for i in range(len(times)):
+        if total_time > 0:
             prop.append(round(times[i] / total_time * 100, 2))
+        else:
+            prop.append(0)
 
     for i in range(len(student_names)):
         student_names[i] = student_names[i] + " (" + str(times[i]) + " hours) (" + str(prop[i]) + "%)"
@@ -101,6 +103,7 @@ def project_info(response, project):
            "Tasks": tasks
            }
     response.session['project_id'] = project.title
+    response.session['project_redirect'] = project.id
     return render(response, "ProjectInfo.html", arg)
 
 
@@ -121,12 +124,13 @@ def assign_students(response):
 @login_required(login_url="/signin")
 def create_task(response):
     project_id = response.session["project_id"]
+    project_redirect = response.session['project_redirect']
     if response.method == 'POST':
         form = forms.CreateTask(response.POST, response.FILES)
         form.specify(project_id)
         if form.is_valid():
             form.save()
-            return redirect('/dashboard/project-info/' + project_id + '/')
+            return redirect('/dashboard/project-info/' + str(project_redirect) + '/')
     else:
         form = forms.CreateTask()
         form.specify(project_id)
@@ -135,25 +139,21 @@ def create_task(response):
     return render(response, "create_task.html", arg)
 
 
-def display_task(project_id):
-    task_display = []
-    task = Task.objects.filter(sourceproject=project_id)
-
-    for t in task:
-        task_display.append(t.taskname)
-
-    return task_display
-
-
 @login_required(login_url="/signin")
 def task_info(response, task):
     members = []
     prop = []
-    task = Task.objects.filter(taskname=task)[0]
+    task = Task.objects.filter(pk=task)[0]
+    project = task.sourceproject
 
     task_members = TaskStudents.objects.filter(task_id=task.id).values_list('student_id')
-    task_time = TaskStudents.objects.filter(task_id=task.id).values_list('time', flat=True)
+    tasks = TaskStudents.objects.filter(task_id=task.id)
+    task_time = []
     total_tasktime = 0
+
+    for t in tasks:
+        if t.task.sourceproject == project:
+            task_time.append(t.time)
 
     for i in range(len(task_time)):
         total_tasktime += int(str(task_time[i]))
