@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends "newbase.html" %}
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Assign Members{% endblock %}</title>
+</head>
+{% block content %}
+<body>
+    <style>
+        .container{
+            margin-top: 70px;
+            margin-left: 300px;
+        }
+    </style>
+    {% block header %} Assign Members {% endblock %}
+    <div class="container">
+        
+        <form class="assign" action = "{% url 'assign-members' %}" method="post">
+            {% csrf_token %}
+            {{ form }}
+            <button type="submit">Assign</button>
+        </form>
+    </div>
+</body>
+{% endblock %}
+</html>

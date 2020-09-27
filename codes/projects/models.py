@@ -39,3 +39,12 @@ class Task(models.Model):
 
     def __str__(self):
         return str(self.taskname)
+
+class TaskStudents(models.Model):
+    student = models.ForeignKey(User, default=None, on_delete=models.CASCADE)
+    task = models.ForeignKey(Task, default=None, on_delete=models.CASCADE)
+    time = models.IntegerField(default=0)
+
+    class Meta:
+        verbose_name = "Student Tasks"
+        constraints = [models.UniqueConstraint(fields=['student', 'task'], name="unique task student")]

@@ -2,8 +2,11 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.db import IntegrityError
 from . import forms
-from .models import Project, ProjectStudents, Task
+from .models import Project, ProjectStudents, Task, TaskStudents
+from django.contrib.auth.models import User
 
+globalTask = 0 
+globalProject = 0
 
 # Create your views here.
 @login_required(login_url="/signin")
@@ -53,6 +56,8 @@ def project_info(response, project):
     students = []
     project = Project.objects.filter(title=project)[0]
     projectStudents = ProjectStudents.objects.filter(project=project)
+    global globalProject
+    globalProject = project.id
 
     task = display_task(project.id)
 
@@ -107,3 +112,41 @@ def display_task(project_id):
         task_display.append(t.taskname)
 
     return task_display
+
+@login_required(login_url="/signin")
+def task_info(response,task):
+
+    members = []
+    task = Task.objects.filter(taskname=task)[0]
+    global globalTask
+    globalTask = task.id
+
+    task_members = User.objects.filter(pk__in=TaskStudents.objects.filter(task_id=task.id).values_list('student_id'))
+    task_time = TaskStudents.objects.filter(task_id=task.id).values_list('time',flat=True)
+
+    for i in range(len(task_members)):
+        members.append(str(task_members[i]) + " " + str(task_time[i]))
+
+    arg = {
+        "Task" : task,
+        "Members" : members
+    }
+    return render(response,'TaskInfo.html',arg)
+
+@login_required(login_url="/signin")
+def assign_members(response):
+
+    if globalProject == 0:
+        return redirect("/dashboard/")
+
+    if response.method == 'POST':
+        form = forms.AssignMembers(response.POST, response.FILES, user=response.user)
+        form.specify(globalProject)
+        if form.is_valid():
+            form.save()
+            return redirect("/dashboard/assign-members")
+    else:
+        form = forms.AssignMembers(user=response.user)
+        form.specify(globalProject)
+    arg = {"FullName": response.user.get_full_name, "form": form}
+    return render(response, "assign_members.html", arg)

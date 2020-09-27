@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'newbase.html' %}
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Create Project{% endblock %}</title>
+</head>
+
+{% block content %}
+<body>
+<style>
+    .container{
+        margin-top: 70px;
+        margin-left: 300px;
+    }
+</style>
+{% block header %} TASK INFO BODO AMAT {% endblock %}
+    <div class="container">
+        <h2> Task name: {{ Task }}</h2>
+        <h3> Completed: {{ Task.taskdone }} </h3>
+        <h4> Task description: {{ Task.taskdesc }} </h4>
+        <h3> Members: </h3>
+        {% for mem in Members %}
+            <h4> {{ mem }} </h4>
+        {% endfor %}
+        <button onclick="location.href = '/dashboard/assign-members/'">
+            Add New Members
+        </button>
+    </div>
+</body>
+{% endblock %}
+
+</html>

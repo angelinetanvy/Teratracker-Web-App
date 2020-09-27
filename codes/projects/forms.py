@@ -29,3 +29,17 @@ class CreateTask(forms.ModelForm):
     class Meta:
         model = models.Task
         fields = ['taskname','taskdesc','sourceproject','taskdone']
+
+class AssignMembers(forms.ModelForm):
+    class Meta:
+        model = models.TaskStudents
+        fields = ['task', 'student','time']
+
+    def __init__(self, *args, **kwargs):
+        user = kwargs.pop('user')
+        super(AssignMembers, self).__init__(*args, **kwargs)
+
+    def specify(self,selectedProject):
+        self.fields['task'] = forms.ModelChoiceField(queryset=models.Task.objects.filter(sourceproject=selectedProject))
+        self.fields['student'] = forms.ModelChoiceField(queryset=User.objects.filter(pk__in=models.ProjectStudents.objects.filter(project_id=selectedProject).values_list('student_id')))
+        

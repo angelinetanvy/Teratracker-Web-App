@@ -23,8 +23,9 @@
         {% for student in Students %}
             <h5>- {{student}}</h5>
         {% endfor %}
+        <h3> Tasks: </h3>
         {% for t in Task %}
-            <h3>{{ t }}</h3>
+            <h4><a href="/dashboard/task-info/{{ t }}/">{{ t }}</a></h4>
         {% endfor %}
     </div>
     
