@@ -14,7 +14,8 @@ class Project(models.Model):
         verbose_name = "Project"
 
     def __str__(self):
-        return str(self.title) + "-" + str(self.supervisor)
+        return str(self.title)
+    # + "-" + str(self.supervisor)
 
 # Student in Project
 class ProjectStudents(models.Model):
@@ -46,5 +47,8 @@ class TaskStudents(models.Model):
     time = models.IntegerField(default=0)
 
     class Meta:
-        verbose_name = "Student Tasks"
+        verbose_name = "Student Task"
         constraints = [models.UniqueConstraint(fields=['student', 'task'], name="unique task student")]
+
+    def __str__(self):
+        return str(self.task) + "-" + str(self.student)

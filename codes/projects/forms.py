@@ -30,6 +30,9 @@ class CreateTask(forms.ModelForm):
         model = models.Task
         fields = ['taskname','taskdesc','sourceproject','taskdone']
 
+    def specify(self, selectedProject):
+        self.fields['sourceproject'] = forms.ModelChoiceField(queryset=models.Project.objects.filter(title=selectedProject))
+
 class AssignMembers(forms.ModelForm):
     class Meta:
         model = models.TaskStudents
@@ -39,7 +42,8 @@ class AssignMembers(forms.ModelForm):
         user = kwargs.pop('user')
         super(AssignMembers, self).__init__(*args, **kwargs)
 
-    def specify(self,selectedProject):
-        self.fields['task'] = forms.ModelChoiceField(queryset=models.Task.objects.filter(sourceproject=selectedProject))
-        self.fields['student'] = forms.ModelChoiceField(queryset=User.objects.filter(pk__in=models.ProjectStudents.objects.filter(project_id=selectedProject).values_list('student_id')))
+    def specify(self,selectedTask, selectedProject):
+        self.fields['task'] = forms.ModelChoiceField(queryset=models.Task.objects.filter(id=selectedTask))
+        project = models.Project.objects.get(title=selectedProject)
+        self.fields['student'] = forms.ModelChoiceField(queryset=User.objects.filter(pk__in=models.ProjectStudents.objects.filter(project=project).values_list('student_id')))
         
