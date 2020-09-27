@@ -59,10 +59,11 @@ def project_info(response, project):
     student_names = []
     students = []
     times = []
+    prop = []
     project = Project.objects.filter(title=project)[0]
     projectStudents = ProjectStudents.objects.filter(project=project)
 
-    task = display_task(project.id)
+    tasks = display_task(project.id)
 
     if response.user.is_staff:
         AccountType = "Teacher"
@@ -77,16 +78,27 @@ def project_info(response, project):
     for student in students:
         total_time = 0
         studentTasks = TaskStudents.objects.filter(student=student)
-        for task in studentTasks:
-            print(task)
+        for studentTask in studentTasks:
+            if studentTask.task.sourceproject == project:
+                total_time += studentTask.time
+        times.append(total_time)
+
+    total_time = sum(times)
+    if total_time > 0:
+        for i in range(len(times)):
+            prop.append(round(times[i] / total_time * 100, 2))
+
+    for i in range(len(student_names)):
+        student_names[i] = student_names[i] + " (" + str(times[i]) + " hours) (" + str(prop[i]) + "%)"
+
+    data = zip(student_names, prop)
 
     arg = {"FirstName": response.user.first_name.capitalize,
            "FullName": response.user.get_full_name,
            "Project": project,
-           "Students": student_names,
-           # "Times": times,
+           "Data": data,
            "AccountType": AccountType,
-           "Task": task
+           "Tasks": tasks
            }
     response.session['project_id'] = project.title
     return render(response, "ProjectInfo.html", arg)
@@ -149,7 +161,7 @@ def task_info(response, task):
     for i in range(len(task_members)):
         memberProportion = round(int(str(task_time[i])) / total_tasktime * 100, 2)
         prop.append(memberProportion)
-        members.append(str(User.objects.get(id=task_members[i][0])) + " (" + str(task_time[i]) + " hours) (" + str(memberProportion) + "%)")
+        members.append(str(User.objects.get(id=task_members[i][0]).get_full_name()) + " (" + str(task_time[i]) + " hours) (" + str(memberProportion) + "%)")
 
     data = zip(members, prop)
     arg = {

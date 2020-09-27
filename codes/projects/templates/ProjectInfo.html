@@ -20,11 +20,12 @@
         <h3>Supervised By: {{ Project.supervisor }}</h3>
         <h4>Due: {{ Project.due_date }} {{ Project.due_time }}</h4>
         <h4>Students:</h4>
-        {% for student in Students %}
+        {% for student, time in Data %}
             <h5>- {{student}}</h5>
+            <h4 style="background-color:yellow; width: calc(100% * {{time}} / 110);">0</h4>
         {% endfor %}
         <h3> Tasks: </h3>
-        {% for t in Task %}
+        {% for t in Tasks %}
             <h4><a href="/dashboard/task-info/{{ t }}/">{{ t }}</a></h4>
         {% endfor %}
         <button onclick="location.href = '/dashboard/create-task/'">
