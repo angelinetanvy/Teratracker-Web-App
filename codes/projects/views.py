@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.db import IntegrityError
 from . import forms
-from .models import Project, ProjectStudents
+from .models import Project, ProjectStudents, Task
 
 
 # Create your views here.
@@ -54,6 +54,8 @@ def project_info(response, project):
     project = Project.objects.filter(title=project)[0]
     projectStudents = ProjectStudents.objects.filter(project=project)
 
+    task = display_task(project.id)
+
     if response.user.is_staff:
         AccountType = "Teacher"
     else:
@@ -67,10 +69,10 @@ def project_info(response, project):
            "FullName": response.user.get_full_name,
            "Project": project,
            "Students": students,
-           "AccountType": AccountType
+           "AccountType": AccountType,
+           "Task": task
            }
     return render(response, "ProjectInfo.html", arg)
-
 
 @login_required(login_url="/signin")
 def assign_students(response):
@@ -84,3 +86,24 @@ def assign_students(response):
         form = forms.AssignStudents(user=response.user)
     ctx = {"FullName": response.user.get_full_name, "form": form}
     return render(response, "assignstudents.html", ctx)
+
+@login_required(login_url="/signin")
+def create_task(response):
+    if response.method == 'POST':
+        form = forms.CreateTask(response.POST, response.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('/dashboard')
+    else:
+        form = forms.CreateTask()
+    arg = { "form": form }
+    return render(response,"create_task.html",arg)
+
+def display_task(project_id):
+    task_display = []
+    task = Task.objects.filter(sourceproject=project_id)
+
+    for t in task:
+        task_display.append(t.taskname)
+
+    return task_display
