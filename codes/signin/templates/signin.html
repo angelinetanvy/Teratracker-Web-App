@@ -1,89 +1,65 @@
-{% extends 'headnav.html' %}
-
-{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'signin/style.css' %}">
+<head>
+    <title>Terbul Tracker Sign In</title>
+	<meta charset="utf-8"/>
+</head>
 <body>
-{% block content %}
-<style>
-   .container{
-       text-align: center;
-       background-color: #f2f2f25e;
-       padding-top: 20px;
-       padding-bottom: 30px;
-       margin-top: 20px;
-       margin-left: 450px;
-       padding-left: 1%;
-       padding-right: 1%;
-   }
-    body{
-        background-image: url('https://images.unsplash.com/photo-1435575653489-b0873ec954e2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80');
-        background-size:cover;
-        height: 100vh;
-        padding:0;
-        margin:0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-family:tahoma;
-    }   
-    .line {
-        width: 2px;
-        height: 350px;
-        top: 650;
-        bottom: 140;
-        left: 50%;
-        position: absolute;
-        background: black;
-    }
-    .box {
-          position: fixed;
-          top: 5;
-          left: 20%;
-          width: 60%;
-          height: 60%;
-          text-align: left;
-          background: #1f3a49af;
-          color: black;
-          font-size: 10px;
-          font-family:tahoma;
-          z-index: -1;
-    }
-    .terbul {
-          position: fixed;
-          top: 10;
-          left: 23%;
-          width: 100;
-          height: 100;
-          text-align: left;
-          color: black;
-          font-size: 40px;
-          font-family:tahoma;
-          z-index: -1;
-          border-style: solid;
-          border-color: black;
-          border-width: 4px;
-          padding-left: 1%;
-          padding-right: 1%;
-    }
-    
-
-</style>
-    <div class="container">
-        <h3>LOGIN</h3>
-        <form method="post" class="form-group">
+<input type="hidden" id="signupFail" name="signupFail" value="{{ signupFail }}">
+<h1>TERBUL Tracker</h1>
+<div class="container" id="container">
+	<div class="form-container sign-up-container">
+		<form method="post">
+			<h1>Create Account</h1>
             {% csrf_token %}
-            {{form|crispy}}
-            {% if request.GET.next %}
+            {% for field in signupform %}
+                <p>
+                    {{ field }}
+                </p>
+                {% for error in field.errors %}
+                    <p style="color: red; font-size: 10px">{{ error }}</p>
+                {% endfor %}
+            {% endfor %}
+			<button>Sign Up</button>
+		</form>
+	</div>
+	<div class="form-container sign-in-container">
+		<form method="POST">
+			<h1>Sign in</h1>
+            {% csrf_token %}
+            {% for field in signinform %}
+                <p>
+                    {{ field }}
+                </p>
+                {% for error in field.error %}
+                    <p style="color: red">{{ error }}</p>
+                    <alert>error</alert>
+                {% endfor %}
+            {% endfor %}
+			{% if request.GET.next %}
                 <input type="hidden" name="next" value="{{ request.GET.next }}">
-            {% endif %}
-            <p> </p>
-            <button type="submit" class="btn btn-success" 
-            style="font-size:18px;font-family: tahoma;background-color:#343b81;border-style: none;width: 40%;height: 5%; box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 10px 0 rgba(0,0,0,0.5);border-radius: 8px;">Sign In</button>
-            <p id="forget" ><a href="https://photricity.com/flw/ajax/"style="color: navy;">Forget password?</a></p>
-            <p style="font-size: 14px;">Don't have an account? <a href="/signup" style="color: navy;font-size: 14px;"><b>Sign up here</b></a></p>
-        </form>
-    </div>
-    <div class="line"></div>
-    <div class="box"></div>
-    <div class="terbul"><text>TERBUL™</text><text>TRACKER</text></div>
-{% endblock %}
+        	{% endif %}
+			<button type="submit">Sign In</button>
+		</form>
+	</div>
+	<div class="overlay-container">
+		<div class="overlay">
+			<div class="overlay-panel overlay-left">
+				<h1>Hello, Friend!</h1>
+				<p>Enter your personal details and start journey with us</p>
+                <p>Already have an account?</p>
+				<button class="ghost" id="signIn">Sign In</button>
+			</div>
+			<div class="overlay-panel overlay-right">
+				<h1>Welcome Back!</h1>
+				<p>To keep connected with us please login with your personal info</p>
+                <p>Don't have an account?</p>
+				<button class="ghost" id="signUp">Sign Up</button>
+			</div>
+		</div>
+	</div>
+</div>
+<script src="{% static 'signin/script.js' %}"></script>
 </body>
