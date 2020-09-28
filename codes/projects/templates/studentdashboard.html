@@ -19,7 +19,7 @@
     <h1 id="Temp">PROJECTS</h1>
     {% for project in Projects %}
         <div class="project">
-            <h2><a href="/dashboard/project-info/{{project.title}}/">{{ project.title }}</a></h2>
+            <h2><a href="/dashboard/project-info/{{project.id}}/">{{ project.title }}</a></h2>
             <h3>Supervised By: {{ project.supervisor }}</h3>
             <h4>Due: {{ project.due_date }} {{ project.due_time }}</h4>
         </div>
