@@ -189,3 +189,14 @@ def assign_members(response):
         form.specify(task_id, project_id)
     arg = {"FullName": response.user.get_full_name, "form": form}
     return render(response, "assign_members.html", arg)
+
+@login_required(login_url="/signin")
+def close_task(request,task):
+    task = Task.objects.filter(pk=task)[0]
+    curr = Task.objects.filter(id=task.id)[0]
+    task_redirect = request.session['task']
+    if request.method == 'POST':
+        curr.completed()
+        curr.save()
+        return redirect('/dashboard/task-info/' + str(task_redirect) + '/')
+    return render(request,"confirmation.html")

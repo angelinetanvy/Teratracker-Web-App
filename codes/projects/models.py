@@ -41,6 +41,9 @@ class Task(models.Model):
     def __str__(self):
         return str(self.taskname)
 
+    def completed(self):
+        self.taskdone = True
+
 class TaskStudents(models.Model):
     student = models.ForeignKey(User, default=None, on_delete=models.CASCADE)
     task = models.ForeignKey(Task, default=None, on_delete=models.CASCADE)

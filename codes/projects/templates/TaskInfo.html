@@ -25,9 +25,11 @@
             <h4 style="background-color:yellow; width: calc(100% * {{prop}} / 110);">|</h4>
         {% endfor %}
         </div>
-
         <button onclick="location.href = '/dashboard/assign-members/'">
             Add Contribution
+        </button>
+        <button onclick="location.href = '/dashboard/task-info/{{Task.id}}/confirmation/'">
+            Close Task
         </button>
     </div>
 </body>
