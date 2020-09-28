@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'newbase.html' %}
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Create Project{% endblock %}</title>
+</head>
+
+{% block content %}
+<body>
+<style>
+    .container{
+        margin-top: 70px;
+        margin-left: 300px;
+    }
+</style>
+{% block header %} TASK INFO BODO AMAT {% endblock %}
+    <div class="container">
+        <h2> Task name: {{ Task }}</h2>
+        <h3> Completed: {{ Task.taskdone }} </h3>
+        <h4> Task description: {{ Task.taskdesc }} </h4>
+        <div>
+        {% for mem, prop in Data %}
+            <h5> {{ mem }} </h5>
+            <h4 style="background-color:yellow; width: calc(100% * {{prop}} / 110);">|</h4>
+        {% endfor %}
+        </div>
+    </div>
+</body>
+{% endblock %}
+
+</html>

@@ -171,6 +171,8 @@ def task_info(response, task):
     }
     response.session['project_id'] = str(task.sourceproject)
     response.session['task'] = task.id
+    if (task.taskdone):
+        return render(response, 'TaskInfoCompleted.html',arg)
     return render(response, 'TaskInfo.html', arg)
 
 
