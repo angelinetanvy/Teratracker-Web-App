@@ -171,8 +171,8 @@ def task_info(response, task):
     }
     response.session['project_id'] = str(task.sourceproject)
     response.session['task'] = task.id
-    if (task.taskdone):
-        return render(response, 'TaskInfoCompleted.html',arg)
+    if task.taskdone:
+        return render(response, 'TaskInfoCompleted.html', arg)
     return render(response, 'TaskInfo.html', arg)
 
 
@@ -193,12 +193,15 @@ def assign_members(response):
     return render(response, "assign_members.html", arg)
 
 @login_required(login_url="/signin")
-def close_task(request,task):
+def close_task(response, task):
     task = Task.objects.filter(pk=task)[0]
     curr = Task.objects.filter(id=task.id)[0]
-    task_redirect = request.session['task']
-    if request.method == 'POST':
-        curr.completed()
-        curr.save()
+    task_redirect = response.session['task']
+    if response.method == 'GET':
+        if response.GET.get('yesbtn'):
+            curr.completed()
+            curr.save()
+            return redirect('/dashboard/task-info/' + str(task_redirect) + '/')
+    else:
         return redirect('/dashboard/task-info/' + str(task_redirect) + '/')
-    return render(request,"confirmation.html")
+    return render(response, "confirmation.html", {'Task': task})

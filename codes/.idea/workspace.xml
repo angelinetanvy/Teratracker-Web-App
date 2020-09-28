@@ -5,14 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4346fe58-c168-4c57-a666-4ee45166cae1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/signin/forms.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/signin/static/signin/script.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/signin/static/signin/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/codes/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/codes/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/codes/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signin/templates/signin.html" beforeDir="false" afterPath="$PROJECT_DIR$/signin/templates/signin.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/templates/confirmation.html" beforeDir="false" afterPath="$PROJECT_DIR$/projects/templates/confirmation.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/projects/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/signin/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/signin/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/signup/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/signup/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/signup/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/signup/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +48,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/signin" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/signup" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -59,15 +59,16 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\Work\Monash\FIT2101\Assignment\codes\signin\static\signin" />
-      <recent name="D:\Work\Monash\FIT2101\Assignment\codes\projects\templates" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Work\Monash\FIT2101\Assignment\codes\signup" />
       <recent name="D:\Work\Monash\FIT2101\Assignment\codes\signin" />
       <recent name="D:\Work\Monash\FIT2101\Assignment\codes\signin\static\signin" />
       <recent name="D:\Work\Monash\FIT2101\Assignment\codes\main\templates" />
       <recent name="D:\Work\Monash\FIT2101\Assignment\codes\signin\templates" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Work\Monash\FIT2101\Assignment\codes\signin\static\signin" />
+      <recent name="D:\Work\Monash\FIT2101\Assignment\codes\projects\templates" />
     </key>
   </component>
   <component name="RunManager">
@@ -135,6 +136,8 @@
       <workItem from="1601212939009" duration="4733000" />
       <workItem from="1601295104615" duration="12364000" />
       <workItem from="1601307958484" duration="12927000" />
+      <workItem from="1601321740092" duration="935000" />
+      <workItem from="1601322693539" duration="2125000" />
     </task>
     <servers />
   </component>

@@ -1,6 +1,5 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, logout, authenticate
-from django.template import RequestContext
 from . import forms
 
 # Create your views here.
