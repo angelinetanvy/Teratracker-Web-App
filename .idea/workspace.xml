@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d1e64290-a44f-417a-909a-b185ce0770f3" name="Default Changelist" comment="" />
+    <list default="true" id="d1e64290-a44f-417a-909a-b185ce0770f3" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/codes/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/codes/db.sqlite3" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -29,6 +32,11 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -39,6 +47,9 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/codes/projects/templates" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Document\Tugas2\Semester 5(Agu 2020-Nov 2020)\FIT 2101 - Software Engineering Process &amp; Management\Assignment\Assignment 1\TerbulTracker\codes\signin\templates" />
       <recent name="D:\Document\Tugas2\Semester 5(Agu 2020-Nov 2020)\FIT 2101 - Software Engineering Process &amp; Management\Assignment\Assignment 1\TerbulTracker\codes\main\templates" />
