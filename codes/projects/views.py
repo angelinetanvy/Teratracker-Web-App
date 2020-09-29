@@ -63,7 +63,7 @@ def project_info(response, project):
     project = Project.objects.filter(pk=project)[0]
     projectStudents = ProjectStudents.objects.filter(project=project)
     tasks = Task.objects.filter(sourceproject=project.id)
-    # tasks = display_task(project.id)
+    #  tasks = display_task(project.id)
 
     if response.user.is_staff:
         AccountType = "Teacher"

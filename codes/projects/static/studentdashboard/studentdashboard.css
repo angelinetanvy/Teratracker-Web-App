@@ -1,0 +1,94 @@
+.container{
+    margin-top: 70px;
+    margin-left: 300px;
+    margin-right: 20px;
+}
+
+#Temp{
+    text-align: center;
+    font-family: sans-serif
+    color: navy;
+}
+
+
+.grid-container{
+    display: grid;
+    max-width: 100%;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    margin: 0 auto;
+}
+
+.grid-item{
+    background-image: url('https://image.freepik.com/free-vector/abstract-dark-blue-polygonal-background_1035-9700.jpg');
+    box-shadow: 0 5px 5px 0 rgba(0,0,0,0.24), 0 5px 10px 0 rgba(0,0,0,0.19);
+    padding : 10px 15px 10px 15px;
+    border-radius: 10px;
+}
+
+.project-info{
+    background-color: white;
+    padding : 10px 15px 10px 15px;
+    border-radius: 10px;
+}
+
+@media (min-width: 600px){
+    .grid-container{grid-template-columns: repeat(2, 1fr);}
+}
+
+@media (min-width: 900px){
+    .grid-container{grid-template-columns: repeat(3, 1fr);}
+}
+
+@media (min-width: 1200px){
+    .grid-container{grid-template-columns: repeat(4, 1fr);}
+}
+
+ul{
+    list-style: none;
+}
+
+#projectTitle{
+    font-size: 22px;
+    font-family: sans-serif;
+    font-weight: Bold;
+    text-align: center;
+    color: white;
+}
+
+.grid-item:hover{
+    background-color: navy;
+    color: white;
+    transition-duration: 0.3s;
+    transform: scale(1.05);
+}
+
+.grid-item:hover #projectTitle{
+    color: white;
+}
+
+.grid-item:hover #supervised {
+    color: gray;
+}
+
+.grid-item:hover #due {
+    color: gray;
+}
+
+#supervised{
+    font-size: 14px;
+    font-weight: bold;
+    font-family: Arial;
+    color: black;
+}
+
+#due{
+    font-size: 12px;
+    color: black;
+}
+
+#box{
+    text-decoration:none;
+}
+
+

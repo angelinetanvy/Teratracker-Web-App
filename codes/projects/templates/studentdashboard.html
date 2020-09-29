@@ -1,31 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 {% extends 'newbase.html' %}
+{% load static %}
+
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}Tracker Dashboard{% endblock %}</title>
 </head>
-{% block content %}
-<body>
-<style>
-    .container{
-        margin-top: 70px;
-        margin-left: 300px;
-    }
 
-</style>
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'studentdashboard/studentdashboard.css' %}">
+<body>
 {% block header %} Student {{ FirstName }} {% endblock %}
 <div class="container">
-    <h1 id="Temp">PROJECTS</h1>
+    <h1 id="Temp">MY PROJECTS</h1>
+    <div class="grid-container">
     {% for project in Projects %}
-        <div class="project">
-            <h2><a href="/dashboard/project-info/{{project.id}}/">{{ project.title }}</a></h2>
-            <h3>Supervised By: {{ project.supervisor }}</h3>
-            <h4>Due: {{ project.due_date }} {{ project.due_time }}</h4>
-        </div>
+
+        <a id="box" href="/dashboard/project-info/{{project.id}}/">
+            <div class = "grid-item">
+                <h2 id="projectTitle">{{ project.title }}</h2>
+                <div class="project-info">
+                    <h3 id="supervised">Supervised By: {{ project.supervisor }}</h3>
+                    <p id="due">Due: {{ project.due_date }} {{ project.due_time }}</p>
+                </div>
+            </div>
+        </a>
+
     {% endfor %}
-
-
+    </div>
 </div>
 </body>
 {% endblock %}

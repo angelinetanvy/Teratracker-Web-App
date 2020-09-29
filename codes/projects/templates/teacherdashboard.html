@@ -1,37 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 {% extends 'newbase.html' %}
+{% load static %}
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}Tracker Dashboard{% endblock %}</title>
 </head>
 {% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'teacherdashboard/teacherdashboard.css' %}">
 <body>
-<style>
-    .container{
-        margin-top: 70px;
-        margin-left: 300px;
-    }
-</style>
+
 {% block header %} Teacher {{ FirstName }} {% endblock %}
+
 <div class="container">
-    <h1 id="Temp">PROJECTS</h1>
+    <h1 id="Temp">MY PROJECTS</h1>
+    <div class="grid-container">
     {% for project in Projects %}
-            <div class="project">
-                <h2><a href="/dashboard/project-info/{{ project.id }}/">{{ project.title }}</a></h2>
-                <h3>Supervised By: {{ project.supervisor }}</h3>
-                <h4>Due: {{ project.due_date }} {{ project.due_time }}</h4>
+
+        <a id="box" href="/dashboard/project-info/{{project.id}}/">
+        <div class = "grid-item">
+            <h2 id="projectTitle">{{ project.title }}</h2>
+            <div class="project-info">
+            <h3 id="supervised">Supervised By: {{ project.supervisor }}</h3>
+            <p id="due">Due: {{ project.due_date }} {{ project.due_time }}</p>
             </div>
+        </div>
+        </a>
+
     {% endfor %}
+    </div>
+    <br><br><br><br>
+
+    <div class="button-center">
     <form class="create-project" action = "{% url 'create-project' %}" method="post">
         {% csrf_token %}
-        <button type="submit">Create Project</button>
+        <button id="create-button" type="submit">Create New Project</button>
     </form>
 
     <form class="assign-students" action = "{% url 'assign-students' %}" method="post">
         {% csrf_token %}
-        <button type="submit">Add Students to Project</button>
+        <button id="add-button" type="submit">Add Students to Project</button>
     </form>
+    </div>
 
 </div>
 </body>

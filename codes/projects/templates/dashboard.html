@@ -4,16 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}Tracker Dashboard{% endblock %}</title>
+    {% block statics %}
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'dashboard/dashboard.css' %}">
+    {% endblock %}
 </head>
 {% block content %}
 <body>
-<style>
-    .container{
-        margin-top: 70px;
-        margin-left: 300px;
-    }
-
-</style>
 {% block header %} {{ UserType }} {{ FirstName }} {% endblock %}
 <div class="container">
     <h1 id="Temp">PROJECTS</h1>
