@@ -172,7 +172,12 @@ def task_info(response, task):
     response.session['project_id'] = str(task.sourceproject)
     response.session['task'] = task.id
     if task.taskdone:
-        return render(response, 'TaskInfoCompleted.html', arg)
+        arg['button_display'] = "none"
+    else:
+        arg['button_display'] = "block"
+    r = close_task(response, task.id)
+    if r:
+        return redirect('/dashboard/task-info/' + str(task.id) + '/')
     return render(response, 'TaskInfo.html', arg)
 
 
@@ -197,11 +202,10 @@ def close_task(response, task):
     task = Task.objects.filter(pk=task)[0]
     curr = Task.objects.filter(id=task.id)[0]
     task_redirect = response.session['task']
+    retVal = False
     if response.method == 'GET':
         if response.GET.get('yesbtn'):
             curr.completed()
             curr.save()
-            return redirect('/dashboard/task-info/' + str(task_redirect) + '/')
-    else:
-        return redirect('/dashboard/task-info/' + str(task_redirect) + '/')
-    return render(response, "confirmation.html", {'Task': task})
+            retVal = True
+    return retVal

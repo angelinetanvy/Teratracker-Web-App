@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 
-{% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'newbase/newbase.css' %}">
 
 
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'newbase/newbase.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
 </head>
 

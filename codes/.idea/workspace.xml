@@ -5,14 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4346fe58-c168-4c57-a666-4ee45166cae1" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/projects/static/taskinfo/taskinfo.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/projects/static/taskinfo/taskinfo.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/codes/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projects/templates/confirmation.html" beforeDir="false" afterPath="$PROJECT_DIR$/projects/templates/confirmation.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/templates/newbase.html" beforeDir="false" afterPath="$PROJECT_DIR$/main/templates/newbase.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/static/dashboard/dashboard.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/static/studentdashboard/studentdashboard.css" beforeDir="false" afterPath="$PROJECT_DIR$/projects/static/studentdashboard/studentdashboard.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/templates/TaskInfo.html" beforeDir="false" afterPath="$PROJECT_DIR$/projects/templates/TaskInfo.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projects/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/projects/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signin/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/signin/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signup/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/signup/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signup/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/signup/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +29,7 @@
         <option value="Python Script" />
         <option value="HTML File" />
         <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -138,6 +140,7 @@
       <workItem from="1601307958484" duration="12927000" />
       <workItem from="1601321740092" duration="935000" />
       <workItem from="1601322693539" duration="2125000" />
+      <workItem from="1601380360480" duration="4077000" />
     </task>
     <servers />
   </component>

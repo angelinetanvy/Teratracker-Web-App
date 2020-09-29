@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 {% extends 'newbase.html' %}
+{% load static %}
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}Create Project{% endblock %}</title>
@@ -8,11 +9,8 @@
 
 {% block content %}
 <body>
+<link rel="stylesheet" type="text/css" href="{% static 'taskinfo/taskinfo.css' %}">
 <style>
-    .container{
-        margin-top: 70px;
-        margin-left: 300px;
-    }
 </style>
 {% block header %} TASK INFO BODO AMAT {% endblock %}
     <div class="container">
@@ -25,13 +23,32 @@
             <h4 style="background-color:yellow; width: calc(100% * {{prop}} / 110);">|</h4>
         {% endfor %}
         </div>
-        <button onclick="location.href = '/dashboard/assign-members/'">
+        <button onclick="location.href = '/dashboard/assign-members/'" style="display: {{ button_display }};">
             Add Contribution
         </button>
-        <button onclick="location.href = '/dashboard/task-info/{{Task.id}}/confirmation/'">
+        <button id="closeTask" style="display: {{ button_display }};">
             Close Task
         </button>
+        <div class="bg-modal">
+            <div class="modal-contents">
+                <div class="close">+</div>
+
+                <form action="">
+                    <h3>Are you sure you want to close this task?</h3>
+                    <form method="get" action="">
+                        {% csrf_token %}
+                        <input class="btn btn-danger" type="submit" value="Yes" name="yesbtn"/>
+                    </form>
+                    <form method="post" action="">
+                        {% csrf_token %}
+                        <button class="btn btn-primary" onclick="location.href = '/dashboard/task-info/{{Task.id}}/'">Cancel</button>
+                     </form>
+                </form>
+
+            </div>
+        </div>
     </div>
+<script src="{% static 'taskinfo/taskinfo.js' %}"></script>
 </body>
 {% endblock %}
 
