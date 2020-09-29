@@ -1,17 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d1e64290-a44f-417a-909a-b185ce0770f3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/rSettings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/codes/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/main/templates/newbase.html" beforeDir="false" afterPath="$PROJECT_DIR$/codes/main/templates/newbase.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/projects/templates/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/codes/projects/templates/dashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/projects/templates/studentdashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/codes/projects/templates/studentdashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/projects/templates/teacherdashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/codes/projects/templates/teacherdashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/projects/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/codes/projects/views.py" afterDir="false" />
-    </list>
+    <list default="true" id="d1e64290-a44f-417a-909a-b185ce0770f3" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -83,6 +73,22 @@
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.css" />
   </component>
   <component name="WindowStateProjectService">
+    <state width="1259" height="281" key="GridCell.Tab.0.bottom" timestamp="1601378808041">
+      <screen x="0" y="23" width="1280" height="731" />
+    </state>
+    <state width="1259" height="281" key="GridCell.Tab.0.bottom/0.23.1280.731@0.23.1280.731" timestamp="1601378808041" />
+    <state width="1259" height="281" key="GridCell.Tab.0.center" timestamp="1601378808039">
+      <screen x="0" y="23" width="1280" height="731" />
+    </state>
+    <state width="1259" height="281" key="GridCell.Tab.0.center/0.23.1280.731@0.23.1280.731" timestamp="1601378808039" />
+    <state width="1259" height="281" key="GridCell.Tab.0.left" timestamp="1601378808037">
+      <screen x="0" y="23" width="1280" height="731" />
+    </state>
+    <state width="1259" height="281" key="GridCell.Tab.0.left/0.23.1280.731@0.23.1280.731" timestamp="1601378808037" />
+    <state width="1259" height="281" key="GridCell.Tab.0.right" timestamp="1601378808040">
+      <screen x="0" y="23" width="1280" height="731" />
+    </state>
+    <state width="1259" height="281" key="GridCell.Tab.0.right/0.23.1280.731@0.23.1280.731" timestamp="1601378808040" />
     <state x="567" y="37" width="670" height="676" key="search.everywhere.popup" timestamp="1601371386587">
       <screen x="0" y="23" width="1280" height="733" />
     </state>
