@@ -14,7 +14,7 @@
         margin-left: 300px;
     }
 </style>
-{% block header %} Create Task {% endblock %}
+{% block header %} Create Task for {{ project }}{% endblock %}
     <div class="container">
         <form action="{% url 'create-task' %}" method="post">
             {% csrf_token %}

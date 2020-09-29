@@ -1,7 +1,5 @@
 from django.db import models
-from django.conf import settings
 from django.contrib.auth.models import User
-from django.urls import reverse
 # Create your models here.
 class Project(models.Model):
     title = models.CharField(max_length=100)
@@ -34,6 +32,8 @@ class Task(models.Model):
     taskdesc = models.TextField(max_length=500)
     sourceproject = models.ForeignKey(Project, default=None, on_delete=models.SET_DEFAULT)
     taskdone = models.BooleanField(default=False)
+    # start = models.DateTimeField()  # TBA
+    # due = models.DateTimeField()  # TBA
 
     class Meta:
         verbose_name = "Task"

@@ -31,7 +31,7 @@ urlpatterns = [
     
     path('dashboard/create-project/', project_views.create_project, name='create-project'),
     path('dashboard/project-info/<int:project>/', project_views.project_info, name='project-info'),
-    path('dashboard/assign-students/', project_views.assign_students, name='assign-students'),
+    path('dashboard/assign-students/<int:project_id>/', project_views.assign_students, name='assign-students'),
 
     path('dashboard/create-task/', project_views.create_task, name='create-task'),
     path('dashboard/task-info/<int:task>/', project_views.task_info, name='task-info'),

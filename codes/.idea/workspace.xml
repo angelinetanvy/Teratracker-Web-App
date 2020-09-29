@@ -5,15 +5,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4346fe58-c168-4c57-a666-4ee45166cae1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/projects/static/taskinfo/taskinfo.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projects/static/taskinfo/taskinfo.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main/static/account/account.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/codes/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/codes/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/templates/newbase.html" beforeDir="false" afterPath="$PROJECT_DIR$/main/templates/newbase.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projects/static/dashboard/dashboard.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projects/static/studentdashboard/studentdashboard.css" beforeDir="false" afterPath="$PROJECT_DIR$/projects/static/studentdashboard/studentdashboard.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/templates/base.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/templates/headnav.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/templates/loggedin.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/templates/main.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/projects/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/projects/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/templates/ProjectInfo.html" beforeDir="false" afterPath="$PROJECT_DIR$/projects/templates/ProjectInfo.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projects/templates/TaskInfo.html" beforeDir="false" afterPath="$PROJECT_DIR$/projects/templates/TaskInfo.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/templates/TaskInfoCompleted.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/templates/assign_members.html" beforeDir="false" afterPath="$PROJECT_DIR$/projects/templates/assign_members.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/templates/assignstudents.html" beforeDir="false" afterPath="$PROJECT_DIR$/projects/templates/assignstudents.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/templates/confirmation.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/templates/create_task.html" beforeDir="false" afterPath="$PROJECT_DIR$/projects/templates/create_task.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/templates/dashboard.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/templates/teacherdashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/projects/templates/teacherdashboard.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projects/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/projects/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/signin/templates/account.html" beforeDir="false" afterPath="$PROJECT_DIR$/main/templates/account.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/signup/templates/signup.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,8 +41,8 @@
       <list>
         <option value="Python Script" />
         <option value="HTML File" />
-        <option value="CSS File" />
         <option value="JavaScript File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -61,16 +74,18 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Work\Monash\FIT2101\Assignment\codes\main\templates" />
+      <recent name="D:\Work\Monash\FIT2101\Assignment\codes\main\static" />
+      <recent name="D:\Work\Monash\FIT2101\Assignment\codes\signin\static\signin" />
+      <recent name="D:\Work\Monash\FIT2101\Assignment\codes\projects\templates" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Work\Monash\FIT2101\Assignment\codes\signup" />
       <recent name="D:\Work\Monash\FIT2101\Assignment\codes\signin" />
       <recent name="D:\Work\Monash\FIT2101\Assignment\codes\signin\static\signin" />
       <recent name="D:\Work\Monash\FIT2101\Assignment\codes\main\templates" />
       <recent name="D:\Work\Monash\FIT2101\Assignment\codes\signin\templates" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\Work\Monash\FIT2101\Assignment\codes\signin\static\signin" />
-      <recent name="D:\Work\Monash\FIT2101\Assignment\codes\projects\templates" />
     </key>
   </component>
   <component name="RunManager">
@@ -141,6 +156,7 @@
       <workItem from="1601321740092" duration="935000" />
       <workItem from="1601322693539" duration="2125000" />
       <workItem from="1601380360480" duration="4077000" />
+      <workItem from="1601386568215" duration="12404000" />
     </task>
     <servers />
   </component>
@@ -148,6 +164,10 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1601387037409">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824/-1920.0.1536.824@0.0.1536.824" timestamp="1601387037409" />
     <state x="548" y="167" key="FileChooserDialogImpl" timestamp="1599575568675">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

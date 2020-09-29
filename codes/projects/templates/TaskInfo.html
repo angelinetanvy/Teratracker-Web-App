@@ -10,9 +10,7 @@
 {% block content %}
 <body>
 <link rel="stylesheet" type="text/css" href="{% static 'taskinfo/taskinfo.css' %}">
-<style>
-</style>
-{% block header %} TASK INFO BODO AMAT {% endblock %}
+{% block header %} TASK INFO {% endblock %}
     <div class="container">
         <h2> Task name: {{ Task }}</h2>
         <h3> Completed: {{ Task.taskdone }} </h3>
@@ -44,9 +42,12 @@
                         <button class="btn btn-primary" onclick="location.href = '/dashboard/task-info/{{Task.id}}/'">Cancel</button>
                      </form>
                 </form>
-
             </div>
         </div>
+        <form action = "{% url 'project-info' project=Project %}" method="post">
+            {% csrf_token %}
+            <button type="submit">Back</button>
+        </form>
     </div>
 <script src="{% static 'taskinfo/taskinfo.js' %}"></script>
 </body>

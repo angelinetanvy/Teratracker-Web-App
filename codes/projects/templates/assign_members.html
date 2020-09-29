@@ -13,7 +13,7 @@
             margin-left: 300px;
         }
     </style>
-    {% block header %} Assign Members {% endblock %}
+    {% block header %} Assign Members to {{ Task.taskname }}{% endblock %}
     <div class="container">
         
         <form class="assign" action = "{% url 'assign-members' %}" method="post">
@@ -21,6 +21,11 @@
             {{ form }}
             <button type="submit">Assign</button>
         </form>
+        <form action = "{% url 'task-info' task=Task.id %}" method="post">
+            {% csrf_token %}
+            <button type="submit">Back</button>
+        </form>
+{#        <h4><a class="btn" href="/dashboard/task-info/{{ Task.id }}/">Back</a></h4>#}
     </div>
 </body>
 {% endblock %}

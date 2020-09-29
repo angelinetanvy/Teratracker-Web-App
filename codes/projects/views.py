@@ -63,7 +63,6 @@ def project_info(response, project):
     project = Project.objects.filter(pk=project)[0]
     projectStudents = ProjectStudents.objects.filter(project=project)
     tasks = Task.objects.filter(sourceproject=project.id)
-    #  tasks = display_task(project.id)
 
     if response.user.is_staff:
         AccountType = "Teacher"
@@ -108,33 +107,43 @@ def project_info(response, project):
 
 
 @login_required(login_url="/signin")
-def assign_students(response):
+def assign_students(response, project_id):
+    ctx = {}
+    project = Project.objects.get(pk=project_id)
     if response.method == 'POST':
         form = forms.AssignStudents(response.POST, response.FILES, user=response.user)
 
         if form.is_valid():
-            form.save()
-            return redirect("/dashboard/assign-students")
+            try:
+                instance = form.save(commit=False)
+                instance.project = project
+                instance.save()
+                return redirect("/dashboard/assign-students/" + str(project_id) + "/")
+            except IntegrityError:
+                ctx['err'] = "Student is Already in the Project"
     else:
         form = forms.AssignStudents(user=response.user)
-    ctx = {"FullName": response.user.get_full_name, "form": form}
+    ctx["FullName"] = response.user.get_full_name
+    ctx["form"] = form
+    ctx["Project"] = project
     return render(response, "assignstudents.html", ctx)
 
 
 @login_required(login_url="/signin")
 def create_task(response):
     project_id = response.session["project_id"]
+    project = Project.objects.get(title=project_id)
     project_redirect = response.session['project_redirect']
     if response.method == 'POST':
         form = forms.CreateTask(response.POST, response.FILES)
-        form.specify(project_id)
         if form.is_valid():
-            form.save()
+            instance = form.save(commit=False)
+            instance.sourceproject = project
+            instance.save()
             return redirect('/dashboard/project-info/' + str(project_redirect) + '/')
     else:
         form = forms.CreateTask()
-        form.specify(project_id)
-    arg = {"form": form}
+    arg = {"form": form, "project": project}
 
     return render(response, "create_task.html", arg)
 
@@ -178,6 +187,7 @@ def task_info(response, task):
     r = close_task(response, task.id)
     if r:
         return redirect('/dashboard/task-info/' + str(task.id) + '/')
+    arg['Project'] = project.id
     return render(response, 'TaskInfo.html', arg)
 
 
@@ -185,23 +195,33 @@ def task_info(response, task):
 def assign_members(response):
     project_id = response.session["project_id"]
     task_id = response.session["task"]
+    task = Task.objects.get(pk=task_id)
+    students = User.objects.filter(pk__in=TaskStudents.objects.filter(task=task_id).values_list('student_id'))
     if response.method == 'POST':
         form = forms.AssignMembers(response.POST, response.FILES, user=response.user)
         form.specify(task_id, project_id)
-        if form.is_valid():
-            form.save()
-            return redirect("/dashboard/assign-members")
+
+        student_id = form['student'].value()
+        student = User.objects.get(pk=student_id)
+        if student in students:
+            time = TaskStudents.objects.filter(task=task).get(student=student_id).time + int(form['time'].value())
+            TaskStudents.objects.filter(student=student_id).update(time=time)
+        else:
+            if form.is_valid():
+                instance = form.save(commit=False)
+                instance.task = task
+                instance.save()
+        return redirect("/dashboard/assign-members")
     else:
         form = forms.AssignMembers(user=response.user)
         form.specify(task_id, project_id)
-    arg = {"FullName": response.user.get_full_name, "form": form}
+    arg = {"FullName": response.user.get_full_name, "form": form, "Task": task}
     return render(response, "assign_members.html", arg)
 
 @login_required(login_url="/signin")
 def close_task(response, task):
     task = Task.objects.filter(pk=task)[0]
     curr = Task.objects.filter(id=task.id)[0]
-    task_redirect = response.session['task']
     retVal = False
     if response.method == 'GET':
         if response.GET.get('yesbtn'):
