@@ -99,7 +99,8 @@ def project_info(response, project):
            "Project": project,
            "Data": data,
            "AccountType": AccountType,
-           "Tasks": tasks
+           "Tasks": tasks,
+            "checkTeacher" : response.user.is_staff
            }
     response.session['project_id'] = project.title
     response.session['project_redirect'] = project.id
