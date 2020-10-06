@@ -202,7 +202,7 @@ def task_info(response, task):
         "Task": task,
         "Size": range(len(task_members)),
         "Data": data,
-        "checkTeacher" : response.user.is_staff
+        "checkTeacher": response.user.is_staff
     }
     response.session['project_id'] = str(task.sourceproject)
     response.session['task'] = task.id
