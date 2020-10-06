@@ -30,10 +30,12 @@ class ProjectStudents(models.Model):
 class Task(models.Model):
     taskname = models.CharField(max_length=50)
     taskdesc = models.TextField(max_length=500)
-    sourceproject = models.ForeignKey(Project, default=None, on_delete=models.SET_DEFAULT)
-    taskdone = models.BooleanField(default=False)
-    # start = models.DateTimeField()  # TBA
-    # due = models.DateTimeField()  # TBA
+    sourceproject = models.ForeignKey(Project, default=None, on_delete=models.CASCADE)
+    task_done = models.BooleanField(default=False)
+    start_date = models.DateField(default=None)  # TBA
+    start_time = models.TimeField(default=None)
+    due_date = models.DateField(default=None)  # TBA
+    due_time = models.TimeField(default=None)
 
     class Meta:
         verbose_name = "Task"
@@ -42,7 +44,7 @@ class Task(models.Model):
         return str(self.taskname)
 
     def completed(self):
-        self.taskdone = True
+        self.task_done = True
 
 class TaskStudents(models.Model):
     student = models.ForeignKey(User, default=None, on_delete=models.CASCADE)

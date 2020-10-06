@@ -25,6 +25,10 @@
             {{ form }}
             <input type="submit" value="Create">
         </form>
+        <form class="cancel" action = "{% url 'dashboard' %}" method="post">
+            {% csrf_token %}
+            <button type="submit">Cancel</button>
+        </form>
     </div>
 </body>
 {% endblock %}

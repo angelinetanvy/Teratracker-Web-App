@@ -182,7 +182,7 @@ def task_info(response, task):
     }
     response.session['project_id'] = str(task.sourceproject)
     response.session['task'] = task.id
-    if task.taskdone:
+    if task.task_done:
         arg['button_display'] = "none"
     else:
         arg['button_display'] = "block"

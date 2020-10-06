@@ -5,28 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4346fe58-c168-4c57-a666-4ee45166cae1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/main/static/account/account.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/codes/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/templates/base.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/templates/headnav.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/templates/loggedin.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/templates/main.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/projects/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/projects/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projects/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/projects/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projects/templates/ProjectInfo.html" beforeDir="false" afterPath="$PROJECT_DIR$/projects/templates/ProjectInfo.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projects/templates/TaskInfo.html" beforeDir="false" afterPath="$PROJECT_DIR$/projects/templates/TaskInfo.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projects/templates/TaskInfoCompleted.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projects/templates/assign_members.html" beforeDir="false" afterPath="$PROJECT_DIR$/projects/templates/assign_members.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projects/templates/assignstudents.html" beforeDir="false" afterPath="$PROJECT_DIR$/projects/templates/assignstudents.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projects/templates/confirmation.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/templates/create_project.html" beforeDir="false" afterPath="$PROJECT_DIR$/projects/templates/create_project.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projects/templates/create_task.html" beforeDir="false" afterPath="$PROJECT_DIR$/projects/templates/create_task.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projects/templates/dashboard.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projects/templates/teacherdashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/projects/templates/teacherdashboard.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projects/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/projects/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signin/templates/account.html" beforeDir="false" afterPath="$PROJECT_DIR$/main/templates/account.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signup/templates/signup.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -157,6 +145,7 @@
       <workItem from="1601322693539" duration="2125000" />
       <workItem from="1601380360480" duration="4077000" />
       <workItem from="1601386568215" duration="12404000" />
+      <workItem from="1601989062879" duration="3140000" />
     </task>
     <servers />
   </component>

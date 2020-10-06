@@ -13,8 +13,10 @@
 {% block header %} TASK INFO {% endblock %}
     <div class="container">
         <h2> Task name: {{ Task }}</h2>
-        <h3> Completed: {{ Task.taskdone }} </h3>
+        <h3> Completed: {{ Task.task_done }} </h3>
         <h4> Task description: {{ Task.taskdesc }} </h4>
+        <h4> Start: {{ Task.start_date }} {{ Task.start_time }}</h4>
+        <h4> Due: {{ Task.due_date }} {{ Task.due_time }}</h4>
         <div>
         {% for mem, prop in Data %}
             <h5> {{ mem }} </h5>

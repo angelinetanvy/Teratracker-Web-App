@@ -21,6 +21,10 @@
             <button type="submit">Assign</button>
         </form>
         <h4 style="color: red">{{ err }}</h4>
+        <form class="back" action = "{% url 'project-info' project=Project.id %}" method="post">
+            {% csrf_token %}
+            <button type="submit">Back</button>
+        </form>
     </div>
 </body>
 {% endblock %}

@@ -5,13 +5,16 @@ from django.contrib.auth.models import User
 class DateInput(forms.DateInput):
     input_type = 'date'
 
+class TimeInput(forms.TimeInput):
+    input_type = 'time'
 
 class CreateProjects(forms.ModelForm):
     class Meta:
         model = models.Project
         fields = ['title', 'due_date', 'due_time']
         widgets = {
-            'due_date': DateInput()
+            'due_date': DateInput(),
+            'due_time': TimeInput()
         }
 
 class AssignStudents(forms.ModelForm):
@@ -27,7 +30,13 @@ class AssignStudents(forms.ModelForm):
 class CreateTask(forms.ModelForm):
     class Meta:
         model = models.Task
-        fields = ['taskname', 'taskdesc', 'taskdone']
+        fields = ['taskname', 'taskdesc', 'start_date', 'start_time', 'due_date', 'due_time', 'task_done']
+        widgets = {
+            'start_date': DateInput(),
+            'start_time': TimeInput(),
+            'due_date': DateInput(),
+            'due_time': TimeInput()
+        }
 
 class AssignMembers(forms.ModelForm):
     class Meta:
