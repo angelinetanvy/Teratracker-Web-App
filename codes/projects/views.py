@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.db import IntegrityError
+from django.core.exceptions import ObjectDoesNotExist
 from . import forms
 from .models import Project, ProjectStudents, Task, TaskStudents
 from django.contrib.auth.models import User
@@ -104,6 +105,10 @@ def project_info(response, project):
            }
     response.session['project_id'] = project.title
     response.session['project_redirect'] = project.id
+
+    r = close_project(response, project.id)
+    if r:
+        return redirect('/dashboard')
     return render(response, "ProjectInfo.html", arg)
 
 
@@ -128,6 +133,25 @@ def assign_students(response, project_id):
     ctx["form"] = form
     ctx["Project"] = project
     return render(response, "assignstudents.html", ctx)
+
+@login_required(login_url="/signin")
+def remove_students(response, project_id):
+    ctx = {}
+    project = Project.objects.get(pk=project_id)
+    if response.method == 'POST':
+        form = forms.AssignStudents(response.POST, response.FILES, user=response.user)
+
+        if form.is_valid():
+            try:
+                target = ProjectStudents.objects.filter(project=project).get(student=form.save(commit=False).student).delete()
+            except ObjectDoesNotExist:
+                ctx['err'] = "Student is not in the Project"
+    else:
+        form = forms.AssignStudents(user=response.user)
+    ctx["FullName"] = response.user.get_full_name
+    ctx["form"] = form
+    ctx["Project"] = project
+    return render(response, "remove_students.html", ctx)
 
 
 @login_required(login_url="/signin")
@@ -229,5 +253,16 @@ def close_task(response, task):
         if response.GET.get('yesbtn'):
             curr.completed()
             curr.save()
+            retVal = True
+    return retVal
+
+@login_required(login_url="/signin")
+def close_project(response, project):
+    project = Project.objects.filter(pk=project)[0]
+    curr = Project.objects.filter(id=project.id)[0]
+    retVal = False
+    if response.method == 'GET':
+        if response.GET.get('yesbtn'):
+            curr.delete()
             retVal = True
     return retVal

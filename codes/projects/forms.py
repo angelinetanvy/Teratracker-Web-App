@@ -27,6 +27,16 @@ class AssignStudents(forms.ModelForm):
         super(AssignStudents, self).__init__(*args, **kwargs)
         self.fields['student'] = forms.ModelChoiceField(queryset=User.objects.filter(is_staff=False))
 
+class RemoveStudents(forms.ModelForm):
+    class Meta:
+        model = models.ProjectStudents
+        fields = ['student']
+
+    def __init__(self, *args, **kwargs):
+        user = kwargs.pop('user')
+        super(RemoveStudents, self).__init__(*args, **kwargs)
+        self.fields['student'] = forms.ModelChoiceField(queryset=User.objects.filter(is_staff=False))
+
 class CreateTask(forms.ModelForm):
     class Meta:
         model = models.Task
