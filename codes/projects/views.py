@@ -213,6 +213,9 @@ def task_info(response, task):
     r = close_task(response, task.id)
     if r:
         return redirect('/dashboard/task-info/' + str(task.id) + '/')
+    s = delete_task(response, task.id)
+    if s:
+        return redirect('/dashboard/project-info/' + str(project.id) + '/')
     arg['Project'] = project.id
     return render(response, 'TaskInfo.html', arg)
 
@@ -263,6 +266,17 @@ def close_project(response, project):
     retVal = False
     if response.method == 'GET':
         if response.GET.get('yesbtn'):
+            curr.delete()
+            retVal = True
+    return retVal
+
+@login_required(login_url="/signin")
+def delete_task(response, task):
+    task = Task.objects.filter(pk=task)[0]
+    curr = Task.objects.filter(id=task.id)[0]
+    retVal = False
+    if response.method == 'GET':
+        if response.GET.get('yesbtn1'):
             curr.delete()
             retVal = True
     return retVal
