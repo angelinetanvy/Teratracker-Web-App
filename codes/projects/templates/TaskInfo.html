@@ -21,29 +21,31 @@
             <h4 style="background-color:yellow; width: calc(100% * {{prop}} / 110);">|</h4>
         {% endfor %}
         </div>
-        <button onclick="location.href = '/dashboard/assign-members/'" style="display: {{ button_display }};">
-            Add Contribution
-        </button>
-        <button id="closeTask" style="display: {{ button_display }};">
-            Close Task
-        </button>
-        <div class="bg-modal">
-            <div class="modal-contents">
-                <div class="close">+</div>
+        {% if checkTeacher == False %}
+            <button onclick="location.href = '/dashboard/assign-members/'" style="display: {{ button_display }};">
+                Add Contribution
+            </button>
+            <button id="closeTask" style="display: {{ button_display }};">
+                Close Task
+            </button>
+            <div class="bg-modal">
+                <div class="modal-contents">
+                    <div class="close">+</div>
 
-                <form action="">
-                    <h3>Are you sure you want to close this task?</h3>
-                    <form method="get" action="">
-                        {% csrf_token %}
-                        <input class="btn btn-danger" type="submit" value="Yes" name="yesbtn"/>
+                    <form action="">
+                        <h3>Are you sure you want to close this task?</h3>
+                        <form method="get" action="">
+                            {% csrf_token %}
+                            <input class="btn btn-danger" type="submit" value="Yes" name="yesbtn"/>
+                        </form>
+                        <form method="post" action="">
+                            {% csrf_token %}
+                            <button class="btn btn-primary" onclick="location.href = '/dashboard/task-info/{{Task.id}}/'">Cancel</button>
+                        </form>
                     </form>
-                    <form method="post" action="">
-                        {% csrf_token %}
-                        <button class="btn btn-primary" onclick="location.href = '/dashboard/task-info/{{Task.id}}/'">Cancel</button>
-                     </form>
-                </form>
+                </div>
             </div>
-        </div>
+        {% endif %}
         <form action = "{% url 'project-info' project=Project %}" method="post">
             {% csrf_token %}
             <button type="submit">Back</button>

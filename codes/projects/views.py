@@ -177,7 +177,8 @@ def task_info(response, task):
     arg = {
         "Task": task,
         "Size": range(len(task_members)),
-        "Data": data
+        "Data": data,
+        "checkTeacher" : response.user.is_staff
     }
     response.session['project_id'] = str(task.sourceproject)
     response.session['task'] = task.id
