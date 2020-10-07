@@ -40,11 +40,20 @@ class RemoveStudents(forms.ModelForm):
 class CreateTask(forms.ModelForm):
     class Meta:
         model = models.Task
-        fields = ['taskname', 'taskdesc', 'start_date', 'start_time', 'due_date', 'due_time', 'task_done']
+        DIFFICULTY = AGE_CHOICES = (
+                (1, '1'),
+                (2, '2'),
+                (3, '3'),
+                (4, '4'),
+                (5, '5')
+                )
+        fields = ['taskname', 'taskdesc', 'difficulty', 'start_date', 'start_time', 'due_date', 'due_time', 'task_done']
+        difficulty = forms.ChoiceField(widget=forms.Select(choices=DIFFICULTY))
         widgets = {
             'start_date': DateInput(),
             'start_time': TimeInput(),
             'due_date': DateInput(),
+            'difficulty': forms.Select(choices=DIFFICULTY, attrs={'class': 'form-control'}),
             'due_time': TimeInput()
         }
 

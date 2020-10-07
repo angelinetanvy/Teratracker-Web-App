@@ -79,8 +79,9 @@ def project_info(response, project):
         total_time = 0
         studentTasks = TaskStudents.objects.filter(student=student)
         for studentTask in studentTasks:
-            if studentTask.task.sourceproject == project:
-                total_time += studentTask.time
+            task = studentTask.task
+            if task.sourceproject == project:
+                total_time += studentTask.time * task.difficulty * 0.2
         times.append(total_time)
 
     total_time = sum(times)
@@ -91,7 +92,7 @@ def project_info(response, project):
             prop.append(0)
 
     for i in range(len(student_names)):
-        student_names[i] = student_names[i] + " (" + str(times[i]) + " hours) (" + str(prop[i]) + "%)"
+        student_names[i] = student_names[i] + " (" + str(prop[i]) + "%)"
 
     data = zip(student_names, prop)
 
@@ -101,7 +102,7 @@ def project_info(response, project):
            "Data": data,
            "AccountType": AccountType,
            "Tasks": tasks,
-            "checkTeacher" : response.user.is_staff
+           "checkTeacher": response.user.is_staff
            }
     response.session['project_id'] = project.title
     response.session['project_redirect'] = project.id
@@ -134,6 +135,7 @@ def assign_students(response, project_id):
     ctx["Project"] = project
     return render(response, "assignstudents.html", ctx)
 
+
 @login_required(login_url="/signin")
 def remove_students(response, project_id):
     ctx = {}
@@ -143,7 +145,8 @@ def remove_students(response, project_id):
 
         if form.is_valid():
             try:
-                target = ProjectStudents.objects.filter(project=project).get(student=form.save(commit=False).student).delete()
+                target = ProjectStudents.objects.filter(project=project).get(
+                    student=form.save(commit=False).student).delete()
             except ObjectDoesNotExist:
                 ctx['err'] = "Student is not in the Project"
     else:
@@ -195,7 +198,9 @@ def task_info(response, task):
     for i in range(len(task_members)):
         memberProportion = round(int(str(task_time[i])) / total_tasktime * 100, 2)
         prop.append(memberProportion)
-        members.append(str(User.objects.get(id=task_members[i][0]).get_full_name()) + " (" + str(task_time[i]) + " hours) (" + str(memberProportion) + "%)")
+        members.append(
+            str(User.objects.get(id=task_members[i][0]).get_full_name()) + " (" + str(task_time[i]) + " hours) (" + str(
+                memberProportion) + "%)")
 
     data = zip(members, prop)
     arg = {
@@ -247,6 +252,7 @@ def assign_members(response):
     arg = {"FullName": response.user.get_full_name, "form": form, "Task": task}
     return render(response, "assign_members.html", arg)
 
+
 @login_required(login_url="/signin")
 def close_task(response, task):
     task = Task.objects.filter(pk=task)[0]
@@ -259,6 +265,7 @@ def close_task(response, task):
             retVal = True
     return retVal
 
+
 @login_required(login_url="/signin")
 def close_project(response, project):
     project = Project.objects.filter(pk=project)[0]
@@ -269,6 +276,7 @@ def close_project(response, project):
             curr.delete()
             retVal = True
     return retVal
+
 
 @login_required(login_url="/signin")
 def delete_task(response, task):

@@ -5,10 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4346fe58-c168-4c57-a666-4ee45166cae1" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/projects/migrations/0022_task_difficulty.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projects/static/taskinfo/taskinfo.css" beforeDir="false" afterPath="$PROJECT_DIR$/projects/static/taskinfo/taskinfo.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projects/static/taskinfo/taskinfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/projects/static/taskinfo/taskinfo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/projects/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/projects/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projects/templates/TaskInfo.html" beforeDir="false" afterPath="$PROJECT_DIR$/projects/templates/TaskInfo.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projects/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/projects/views.py" afterDir="false" />
     </list>
@@ -143,6 +144,7 @@
       <workItem from="1601386568215" duration="12404000" />
       <workItem from="1601989062879" duration="3140000" />
       <workItem from="1602006079047" duration="2744000" />
+      <workItem from="1602039173657" duration="2548000" />
     </task>
     <servers />
   </component>

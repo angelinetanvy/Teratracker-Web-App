@@ -32,10 +32,11 @@ class Task(models.Model):
     taskdesc = models.TextField(max_length=500)
     sourceproject = models.ForeignKey(Project, default=None, on_delete=models.CASCADE)
     task_done = models.BooleanField(default=False)
-    start_date = models.DateField(default=None)  # TBA
+    start_date = models.DateField(default=None)
     start_time = models.TimeField(default=None)
-    due_date = models.DateField(default=None)  # TBA
+    due_date = models.DateField(default=None)
     due_time = models.TimeField(default=None)
+    difficulty = models.PositiveIntegerField(default=1)
 
     class Meta:
         verbose_name = "Task"
