@@ -4,7 +4,10 @@
     <list default="true" id="d1e64290-a44f-417a-909a-b185ce0770f3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/codes/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/codes/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/projects/static/taskinfo/taskinfo.css" beforeDir="false" afterPath="$PROJECT_DIR$/codes/projects/static/taskinfo/taskinfo.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/codes/projects/static/projectinfo/projectinfo.css" beforeDir="false" afterPath="$PROJECT_DIR$/codes/projects/static/projectinfo/projectinfo.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/codes/projects/templates/ProjectInfo.html" beforeDir="false" afterPath="$PROJECT_DIR$/codes/projects/templates/ProjectInfo.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/codes/projects/templates/assignstudents.html" beforeDir="false" afterPath="$PROJECT_DIR$/codes/projects/templates/assignstudents.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/codes/projects/templates/remove_students.html" beforeDir="false" afterPath="$PROJECT_DIR$/codes/projects/templates/remove_students.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,6 +88,10 @@
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.css" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="449" y="196" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1602160918412">
+      <screen x="0" y="23" width="1280" height="726" />
+    </state>
+    <state x="449" y="196" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1280.726@0.23.1280.726" timestamp="1602160918412" />
     <state width="1259" height="281" key="GridCell.Tab.0.bottom" timestamp="1601378808041">
       <screen x="0" y="23" width="1280" height="731" />
     </state>

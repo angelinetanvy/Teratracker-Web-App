@@ -200,3 +200,45 @@ button{
     margin-left: -90px;
     position: fixed;
 }
+
+#removeStudent, #addStudent{
+    background-color: navy;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+    width: auto;
+    padding: 15px 15px 15px 15px;
+    margin: 5px 5px 5px 5px;
+    border-radius: 30px;
+    border: none;
+}
+
+#deleteProject{
+    background-color: rgba(222, 60, 75, 1);
+    color: black;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+    width: auto;
+    padding: 15px 15px 15px 15px;
+    margin: 5px 5px 5px 5px;
+    border-radius: 30px;
+    border: none;
+}
+
+#addStudent:hover, #removeStudent:hover{
+    background-color: rgba(211,211,211,1);
+    color: navy;
+    box-shadow: 0 5px 5px 0 rgba(0,0,0,0.24), 0 5px 10px 0 rgba(0,0,0,0.19);
+}
+
+#deleteProject:hover{
+    background-color: rgba(211,211,211,1);
+    color: rgba(222, 60, 75, 1);
+    box-shadow: 0 5px 5px 0 rgba(222, 60, 75,0.24), 0 5px 10px 0 rgba(222, 60, 75,0.19);
+}
+
+#addStudent:active, #removeStudent:active, #deleteProject:active{
+    transform: scale(0.75);
+}

@@ -1,29 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 {% extends "newbase.html" %}
+{% load static %}
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}Assign Students{% endblock %}</title>
 </head>
 {% block content %}
 <body>
-    <style>
-        .container{
-            margin-top: 70px;
-            margin-left: 300px;
-        }
-    </style>
+<link rel="stylesheet" type="text/css" href="{% static 'assignstudents/assignstudents.css' %}">
+
     {% block header %} Assign Students to {{ Project.title }} {% endblock %}
     <div class="container">
         <form class="assign" action = "{% url 'assign-students' project_id=Project.id %}" method="post">
             {% csrf_token %}
             {{ form }}
-            <button type="submit">Assign</button>
+            <button id="submit" type="submit">Assign</button>
         </form>
         <h4 style="color: red">{{ err }}</h4>
         <form class="back" action = "{% url 'project-info' project=Project.id %}" method="post">
             {% csrf_token %}
-            <button type="submit">Back</button>
+            <button id="backButton" type="submit">Back</button>
         </form>
     </div>
 </body>

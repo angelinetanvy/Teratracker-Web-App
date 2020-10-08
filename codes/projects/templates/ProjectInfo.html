@@ -56,17 +56,20 @@
         {% endif %}
 
     {% if checkTeacher == True %}
-        <button onclick="location.href = '/dashboard/assign-students/' + {{ Project.id }} +'/'">
-                Add Student to Project
-        </button>
-        <h5> </h5>
-        <button onclick="location.href = '/dashboard/remove-students/' + {{ Project.id }} +'/'">
-            Remove Student from Project
-        </button>
-        <h5> </h5>
-        <button id="deleteProject" style="display: {{ button_display }};">
-            Delete Project
-        </button>
+        <div class="button-center">
+            <button id="addStudent" onclick="location.href = '/dashboard/assign-students/' + {{ Project.id }} +'/'">
+                    Add Student to Project
+            </button>
+
+            <button id="removeStudent" onclick="location.href = '/dashboard/remove-students/' + {{ Project.id }} +'/'">
+                Remove Student from Project
+            </button>
+
+            <button id="deleteProject">
+                Delete Project
+            </button>
+        </div>
+
         <div class="bg-modal">
             <div class="modal-contents">
                 <div class="close">+</div>
