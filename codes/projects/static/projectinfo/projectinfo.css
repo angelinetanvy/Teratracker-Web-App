@@ -131,7 +131,6 @@ li{
     box-shadow: 0 5px 5px 0 rgba(0,0,0,0.24), 0 5px 10px 0 rgba(0,0,0,0.19);
     padding : 10px 15px 10px 15px;
     border-radius: 10px;
-    margin: 0 0 200px 0;
 }
 
 #task-name{
@@ -164,39 +163,4 @@ li{
 #box{
     text-decoration:none;
     color: rgba(2, 7, 93, 1);
-}
-
-button{
-    text-align: center;
-    padding: 15px 0px 15px 0px;
-    margin: 5px 5px 5px 5px;
-    width: 250px;
-    font-size: 18px;
-    font-family: Arial;
-    font-weight: bold;
-    border-radius: 25px;
-    cursor: pointer;
-    transition-duration: 0.4s;
-    border: 0px;
-}
-
-.button-center{
-    text-align: center;
-}
-
-#create-task:hover{
-    background-color: rgba(96, 99, 105,1);
-}
-
-#create-task:active{
-    transform: scale(0.75);
-}
-
-#create-task{
-    background-color: navy;
-    color: white;
-    bottom: 3%;
-    left: 50%;
-    margin-left: -90px;
-    position: fixed;
 }

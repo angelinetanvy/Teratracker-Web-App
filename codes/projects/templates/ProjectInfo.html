@@ -28,7 +28,7 @@
             {% for student, time in Data %}
             <ul>
                 <li>{{student}}</li>
-                <li id="percentBar"><div class="movingBar" style="width: calc(100% * {{time}} / 105);"></div>|</li>
+                <li id="percentBar"><div class="movingBar" style="width: calc(100% * {{time}} / 110);"></div>|</li>
             </ul>
             {% endfor %}
         </div>
@@ -48,13 +48,10 @@
 
 
         {% if checkTeacher == False %}
-            <div class="button-center">
-                <button id = "create-task" onclick="location.href = '/dashboard/create-task/'">
-                    Create New Task
-                </button>
-            </div>
+            <button onclick="location.href = '/dashboard/create-task/'">
+                Create New Task
+            </button>
         {% endif %}
-
     {% if checkTeacher == True %}
         <button onclick="location.href = '/dashboard/assign-students/' + {{ Project.id }} +'/'">
                 Add Student to Project
