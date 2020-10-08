@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 {% extends 'newbase.html' %}
+{% load static %}
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}Create Task{% endblock %}</title>
@@ -8,22 +9,27 @@
 
 {% block content %}
 <body>
-<style>
-    .container{
-        margin-top: 70px;
-        margin-left: 300px;
-    }
-</style>
+<link rel="stylesheet" type="text/css" href="{% static 'createTask/createTask.css' %}">
 {% block header %} Create Task for {{ project }}{% endblock %}
     <div class="container">
+
         <form action="{% url 'create-task' %}" method="post">
             {% csrf_token %}
-            {{ form }}
-            <input type="submit" value="Create">
+            {% for field in form %}
+                <p>
+                    <b>{{field.label}} : </b><br>
+                    <span id="field">{{field}}</span>
+                </p>
+            {% endfor %}
+            <div style="text-align: center;">
+                <input type="submit" value="Create" id="create">
+            </div>
         </form>
         <form class="cancel" action = "{% url 'project-info' project=project.id %}" method="post">
             {% csrf_token %}
-            <button type="submit">Cancel</button>
+            <div style="text-align: center;">
+                <button id="cancel" type="submit">Cancel</button>
+            </div>
         </form>
     </div>
 </body>
