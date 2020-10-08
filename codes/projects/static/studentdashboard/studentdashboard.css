@@ -44,10 +44,6 @@
     .grid-container{grid-template-columns: repeat(4, 1fr);}
 }
 
-ul{
-    list-style: none;
-}
-
 #projectTitle{
     font-size: 22px;
     font-family: sans-serif;

@@ -8,7 +8,8 @@
 </head>
 {% block content %}
 <body>
-<link rel="stylesheet" type="text/css" href="{% static 'taskinfo/taskinfo.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'projectinfo/projectinfo.css' %}">
+
 <style>
     .container{
         margin-top: 70px;
@@ -18,19 +19,34 @@
 {% block header %} {{ AccountType }} {{ FirstName }} {% endblock %}
 <div class="container">
     <div class="Project">
-        <h2><a>{{ Project.title }}</a></h2>
-        <h3>Supervised By: {{ Project.supervisor }}</h3>
-        <h4>Due: {{ Project.due_date }} {{ Project.due_time }}</h4>
-        <h4>Students:</h4>
-        {% for student, time in Data %}
-            <h5>- {{student}}</h5>
-            <h4 style="background-color:yellow; width: calc(100% * {{time}} / 110);">|</h4>
-        {% endfor %}
-        <h3> Tasks: </h3>
+        <h1 id="projectTitle"><a>{{ Project.title }}</a></h1>
+        <h3 id ="projectDesc"><b>Supervised By:</b> {{ Project.supervisor }}</h3>
+        <h4 id ="projectDesc"><b>Due:</b> {{ Project.due_date }} {{ Project.due_time }}</h4>
+
+        <h4 id="subtitle">Students:</h4>
+        <div class = "studentContribution">
+            {% for student, time in Data %}
+            <ul>
+                <li>{{student}}</li>
+                <li id="percentBar"><div class="movingBar" style="width: calc(100% * {{time}} / 110);"></div>|</li>
+            </ul>
+            {% endfor %}
+        </div>
+
+        <br><br>
+        <h3 id="subtitle"> Tasks: </h3>
+        <div class="grid-container">
         {% for t in Tasks %}
-            <h4><a href="/dashboard/task-info/{{ t.id }}/">{{ t }}</a></h4>
-            <h6>{{ t.start_date }} {{ t.start_time }} - {{ t.due_date }} {{ t.due_time }}</h6>
+            <a id="box" href="/dashboard/task-info/{{ t.id }}/">
+                <div class="grid-item">
+                    <h4>{{ t }}</h4>
+                    <h6>{{ t.start_date }} {{ t.start_time }} - {{ t.due_date }} {{ t.due_time }}</h6>
+                </div>
+            </a>
         {% endfor %}
+        </div>
+
+
         {% if checkTeacher == False %}
             <button onclick="location.href = '/dashboard/create-task/'">
                 Create New Task

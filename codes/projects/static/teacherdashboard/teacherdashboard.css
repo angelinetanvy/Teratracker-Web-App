@@ -116,29 +116,9 @@ button{
     transform: scale(0.75);
 }
 
-#add-button:active{
-    transform: scale(0.75);
-}
-
-#add-button:hover{
-    background-color: rgba(96, 99, 105,1);
-    color: white;
-    border-color: white;
-}
-
 #create-button{
     background-color: navy;
     color: white;
-    bottom: 12%;
-    left: 50%;
-    margin-left: -90px;
-    position: fixed;
-}
-
-#add-button{
-    background-color: white;
-    border: 3px solid navy;
-    color: navy;
     bottom: 3%;
     left: 50%;
     margin-left: -90px;

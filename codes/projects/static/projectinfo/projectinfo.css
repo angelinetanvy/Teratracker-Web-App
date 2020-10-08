@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
 
 .container{
         margin-top: 70px;
@@ -47,4 +48,119 @@ input {
 
 .close:hover{
     color: #666;
+}
+
+body{
+    font-family: 'Montserrat', sans-serif;
+    color: rgba(2, 7, 93, 1);
+}
+
+#projectTitle{
+    font-weight: bold;
+    font-size: 42px;
+    margin: 0 0 0 0;
+}
+
+#projectDesc{
+    font-weight: 400;
+    margin: 0 0 0 0;
+    color: rgba(40, 94, 164, 1);
+}
+
+.studentContribution{
+    background-color: rgba(2, 7, 93, 1);
+    margin: 0 30px 0 0;
+    padding: 10px 10px 10px 10px;
+    border-radius: 10px;
+}
+
+#subtitle{
+    font-size: 24px;
+    margin: 30px 0px 10px 0px;
+}
+
+li{
+    color: white;
+    position: relative;
+    margin: 50px 0;
+    list-style: none;
+}
+
+#percentBar{
+    color: rgba(2, 7, 93, 1);
+}
+
+#percentBar:before{
+    content:" ";
+    position: absolute;
+    top: calc(100%+10px);
+    left: 0;
+    width: 95%;
+    height: 15px;
+    background-color: rgba(40, 94, 164, 0.8);
+    border-radius: 1000px;
+}
+
+.movingBar{
+    content: " ";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 15px;
+    background-color: rgba(146, 174, 221, 1);
+    border-radius: 1000px;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-name: bar;
+}
+
+@keyframes bar{
+    0% {width: 0px;}
+}
+
+.grid-container{
+    display: grid;
+    max-width: 100%;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    margin: 0 auto;
+}
+
+.grid-item{
+    background-color: rgba(146, 174, 221,1);
+    box-shadow: 0 5px 5px 0 rgba(0,0,0,0.24), 0 5px 10px 0 rgba(0,0,0,0.19);
+    padding : 10px 15px 10px 15px;
+    border-radius: 10px;
+}
+
+#task-name{
+    text-align: center;
+}
+
+.grid-item:hover{
+    background-color: rgba(40, 94, 164,1);
+    color: white;
+    transition-duration: 0.3s;
+    transform: scale(1.05);
+}
+
+.grid-item:hover #task-name{
+    color: white;
+}
+
+@media (min-width: 600px){
+    .grid-container{grid-template-columns: repeat(2, 1fr);}
+}
+
+@media (min-width: 900px){
+    .grid-container{grid-template-columns: repeat(3, 1fr);}
+}
+
+@media (min-width: 1200px){
+    .grid-container{grid-template-columns: repeat(4, 1fr);}
+}
+
+#box{
+    text-decoration:none;
+    color: rgba(2, 7, 93, 1);
 }
