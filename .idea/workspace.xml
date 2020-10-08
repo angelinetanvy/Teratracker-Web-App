@@ -4,11 +4,7 @@
     <list default="true" id="d1e64290-a44f-417a-909a-b185ce0770f3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/codes/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/codes/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/projects/static/projectinfo/projectinfo.css" beforeDir="false" afterPath="$PROJECT_DIR$/codes/projects/static/projectinfo/projectinfo.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/projects/static/studentdashboard/studentdashboard.css" beforeDir="false" afterPath="$PROJECT_DIR$/codes/projects/static/studentdashboard/studentdashboard.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/projects/static/teacherdashboard/teacherdashboard.css" beforeDir="false" afterPath="$PROJECT_DIR$/codes/projects/static/teacherdashboard/teacherdashboard.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/projects/templates/ProjectInfo.html" beforeDir="false" afterPath="$PROJECT_DIR$/codes/projects/templates/ProjectInfo.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codes/projects/templates/teacherdashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/codes/projects/templates/teacherdashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/codes/projects/static/taskinfo/taskinfo.css" beforeDir="false" afterPath="$PROJECT_DIR$/codes/projects/static/taskinfo/taskinfo.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -12,29 +12,48 @@
 <link rel="stylesheet" type="text/css" href="{% static 'taskinfo/taskinfo.css' %}">
 {% block header %} TASK INFO {% endblock %}
     <div class="container">
-        <h2> Task name: {{ Task }}</h2>
-        <h3> Completed: {{ Task.task_done }} </h3>
-        <h4> Task description: {{ Task.taskdesc }} </h4>
-        <h4> Start: {{ Task.start_date }} {{ Task.start_time }}</h4>
-        <h4> Due: {{ Task.due_date }} {{ Task.due_time }}</h4>
+        <h2 class="task-name">{{ Task }}</h2>
+
+        {% if Task.task_done == False %}
+            <h3 id="complete" style="background-color: red;"> Completed: {{ Task.task_done }} </h3>
+        {% endif %}
+
+        {% if Task.task_done == True %}
+            <h3 id="complete" style="background-color: green;"> Completed: {{ Task.task_done }} </h3>
+        {% endif %}
+
+        <h4 id="start"> Start: {{ Task.start_date }} {{ Task.start_time }}</h4>
+        <h4 id="due"> Due: {{ Task.due_date }} {{ Task.due_time }}</h4>
+
         <h4> Difficulty: {{ Task.difficulty }}</h4>
-        <div>
+        <h4> Task description: <br> <span style="font-weight:100;">{{ Task.taskdesc }}</span></h4>
+
+
+        <div id="contribution">
         {% for mem, prop in Data %}
-            <h5> {{ mem }} </h5>
-            <h4 style="background-color:yellow; width: calc(100% * {{prop}} / 110);">|</h4>
+            <ul>
+                <li id="mem"> {{ mem }} </li>
+                <li id="percentBar"><div class="movingBar" style="width: calc(100% * {{prop}} / 105);"></div>|</li>
+
+            </ul>
+
         {% endfor %}
         </div>
+
         {% if checkTeacher == False %}
-            <button onclick="location.href = '/dashboard/assign-members/'" style="display: {{ button_display }};">
+        <div id="buttons">
+            <button id ="addContribution" onclick="location.href = '/dashboard/assign-members/'">
                 Add Contribution
             </button>
-            <button id="closeTask" style="display: {{ button_display }};">
+
+            <button id="closeTask">
                 Close Task
             </button>
-            <button id="deleteTask" style="display: {{ button_display }};">
+
+            <button id="deleteTask">
                 Delete Task
             </button>
-
+        </div>
             <div class="bg-modal">
                 <div class="modal-contents">
                     <div class="close">+</div>
@@ -51,7 +70,7 @@
                         </form>
                     </form>
                 </div>
-            </div>
+        </div>
 
             <div class="delete-bg-modal">
                 <div class="delete-modal-contents">
@@ -73,7 +92,7 @@
         {% endif %}
         <form action = "{% url 'project-info' project=Project %}" method="post">
             {% csrf_token %}
-            <button type="submit">Back</button>
+            <button type="submit" id="backButton">Back</button>
         </form>
     </div>
 <script src="{% static 'taskinfo/taskinfo.js' %}"></script>

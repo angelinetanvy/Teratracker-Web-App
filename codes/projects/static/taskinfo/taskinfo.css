@@ -1,6 +1,14 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+
+body{
+    font-family: 'Montserrat', sans-serif;
+    color: rgba(2, 7, 93, 1);
+}
+
 .container{
-        margin-top: 70px;
-        margin-left: 300px;
+    margin-top: 70px;
+    margin-left: 300px;
+    text-align: center;
 }
 .bg-modal {
 	background-color: rgba(0, 0, 0, 0.8);
@@ -72,4 +80,133 @@
 	transform: rotate(45deg);
 	cursor: pointer;
 	transition: color;
+}
+
+.task-name{
+    text-align: center;
+    text-transform: uppercase;
+    margin: 0 0 0 0;
+}
+
+#complete{
+    text-align: center;
+    color: white;
+    margin: 5px 5px 20px 0;
+    min-width: 200px;
+    padding: 10px 10px 10px 10px;
+    border-radius: 1000px
+}
+
+#start, #due{
+    font-weight: 100;
+    margin: 0 0 1px 0;
+}
+
+#task-detail{
+    margin: 0 0 0 0;
+}
+
+#contribution{
+    background-color: rgba(211,211,211,1);
+    margin: 0 5px 16px 0;
+    padding: 5px 5px 5px 5px;
+    border-radius: 10px;
+    text-align: left;
+}
+
+
+li{
+    color: rgba(2, 7, 93, 1);
+    position: relative;
+    margin: 50px 0;
+    list-style: none;
+}
+
+#percentBar{
+    color: rgba(211, 211, 211, 1);
+}
+
+#mem{
+    font-weight: bold;
+}
+
+#percentBar:before{
+    content:" ";
+    position: absolute;
+    top: calc(100%+10px);
+    left: 0;
+    width: 95%;
+    height: 15px;
+    background-color: rgba(40, 94, 164, 0.8);
+    border-radius: 1000px;
+}
+
+.movingBar{
+    content: " ";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 15px;
+    background-color: rgba(146, 174, 221, 1);
+    border-radius: 1000px;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-name: bar;
+}
+
+@keyframes bar{
+    0% {width: 0px;}
+}
+
+#buttons{
+    display: inline;
+}
+
+#addContribution, #closeTask{
+    background-color: navy;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    padding: 15px 15px 15px 15px;
+    margin: 5px 5px 5px 5px;
+    border-radius: 30px;
+    border: none;
+}
+
+#deleteTask{
+    background-color: rgba(222, 60, 75, 1);
+    color: black;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    padding: 15px 15px 15px 15px;
+    margin: 5px 5px 5px 5px;
+    border-radius: 30px;
+    border: none;
+}
+
+#backButton{
+    background-color: rgba(211, 211,211, 1);
+    color: black;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    padding: 15px 15px 15px 15px;
+    margin: 5px 5px 5px 5px;
+    border-radius: 30px;
+    border: none;
+}
+
+#addContribution:hover, #closeTask:hover, #backButton:hover{
+    background-color: rgba(211,211,211,1);
+    color: navy;
+    box-shadow: 0 5px 5px 0 rgba(0,0,0,0.24), 0 5px 10px 0 rgba(0,0,0,0.19);
+}
+
+#deleteTask:hover{
+    background-color: rgba(211,211,211,1);
+    color: rgba(222, 60, 75, 1);
+    box-shadow: 0 5px 5px 0 rgba(222, 60, 75,0.24), 0 5px 10px 0 rgba(222, 60, 75,0.19);
+}
+
+#addContribution:active, #closeTask:active, #deleteTask:active, #backButton:active{
+    transform: scale(0.75);
 }
