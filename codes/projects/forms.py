@@ -1,6 +1,7 @@
 from django import forms
 from . import models
 from django.contrib.auth.models import User
+from django.utils.translation import ugettext_lazy as _
 
 class DateInput(forms.DateInput):
     input_type = 'date'
@@ -40,7 +41,7 @@ class RemoveStudents(forms.ModelForm):
 class CreateTask(forms.ModelForm):
     class Meta:
         model = models.Task
-        DIFFICULTY = AGE_CHOICES = (
+        DIFFICULTY = (
                 (1, '1'),
                 (2, '2'),
                 (3, '3'),
@@ -49,6 +50,11 @@ class CreateTask(forms.ModelForm):
                 )
         fields = ['taskname', 'taskdesc', 'difficulty', 'start_date', 'start_time', 'due_date', 'due_time', 'task_done']
         difficulty = forms.ChoiceField(widget=forms.Select(choices=DIFFICULTY))
+        labels = {
+            'taskname': _('Task Name'),
+            'taskdesc': _('Task Description'),
+            'task_done': _('Done')
+        }
         widgets = {
             'start_date': DateInput(),
             'start_time': TimeInput(),
