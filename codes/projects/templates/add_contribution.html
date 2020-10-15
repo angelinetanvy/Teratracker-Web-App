@@ -11,8 +11,8 @@
 <link rel="stylesheet" type="text/css" href="{% static 'assignMembers/assignMembers.css' %}">
     {% block header %} Assign Members to {{ Task.taskname }}{% endblock %}
     <div class="container">
-        
-        <form class="assign" action = "{% url 'assign-members' %}" method="post">
+
+        <form class="assign" action = "{% url 'add-contribution' %}" method="post">
             {% csrf_token %}
             {% for field in form %}
                 <p>

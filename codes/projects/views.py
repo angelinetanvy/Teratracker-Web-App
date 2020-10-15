@@ -147,6 +147,7 @@ def remove_students(response, project_id):
             try:
                 target = ProjectStudents.objects.filter(project=project).get(
                     student=form.save(commit=False).student).delete()
+                return redirect("/dashboard/remove-students/" + str(project_id) + "/")
             except ObjectDoesNotExist:
                 ctx['err'] = "Student is not in the Project"
     else:
@@ -187,8 +188,14 @@ def task_info(response, task):
     prop = []
     task = Task.objects.filter(pk=task)[0]
     project = task.sourceproject
-
     task_members = TaskStudents.objects.filter(task_id=task.id).values_list('student_id')
+
+    try:
+        TaskStudents.objects.get(task_id=task.id, student=response.user.id)
+        isMember = True
+    except ObjectDoesNotExist:
+        isMember = False
+
     tasks = TaskStudents.objects.filter(task_id=task.id)
     task_time = []
     total_tasktime = 0
@@ -201,7 +208,10 @@ def task_info(response, task):
         total_tasktime += int(str(task_time[i]))
 
     for i in range(len(task_members)):
-        memberProportion = round(int(str(task_time[i])) / total_tasktime * 100, 2)
+        if total_tasktime > 0:
+            memberProportion = round(int(str(task_time[i])) / total_tasktime * 100, 2)
+        else:
+            memberProportion = 0
         prop.append(memberProportion)
         members.append(
             str(User.objects.get(id=task_members[i][0]).get_full_name()) + " (" + str(task_time[i]) + " hours) (" + str(
@@ -212,7 +222,8 @@ def task_info(response, task):
         "Task": task,
         "Size": range(len(task_members)),
         "Data": data,
-        "checkTeacher": response.user.is_staff
+        "checkTeacher": response.user.is_staff,
+        "inTask": isMember
     }
     response.session['project_id'] = str(task.sourceproject)
     response.session['task'] = task.id
@@ -235,28 +246,61 @@ def assign_members(response):
     project_id = response.session["project_id"]
     task_id = response.session["task"]
     task = Task.objects.get(pk=task_id)
-    students = User.objects.filter(pk__in=TaskStudents.objects.filter(task=task_id).values_list('student_id'))
     if response.method == 'POST':
         form = forms.AssignMembers(response.POST, response.FILES, user=response.user)
-        form.specify(project_id)
+        form.specify(project_id, task_id)
 
-        student_id = form['student'].value()
+        if form.is_valid():
+            instance = form.save(commit=False)
+            instance.task = task
+            instance.time = 0
+            instance.save()
+
+        return redirect("/dashboard/assign-members")
+    else:
+        form = forms.AssignMembers(user=response.user)
+        form.specify(project_id, task_id)
+    arg = {"FullName": response.user.get_full_name, "form": form, "Task": task}
+    return render(response, "assign_members.html", arg)
+
+
+@login_required(login_url="/signin")
+def add_contribution(response):
+    task_id = response.session["task"]
+    task = Task.objects.get(pk=task_id)
+    students = User.objects.filter(pk__in=TaskStudents.objects.filter(task=task_id).values_list('student_id'))
+    if response.method == 'POST':
+        form = forms.AddContribution(response.POST, response.FILES)
+        student_id = response.user.id
         student = User.objects.get(pk=student_id)
         if student in students:
             time = TaskStudents.objects.filter(task=task).get(student=student_id).time + int(form['time'].value())
             TaskStudents.objects.filter(student=student_id).update(time=time)
-        else:
-            if form.is_valid():
-                instance = form.save(commit=False)
-                instance.task = task
-                instance.save()
-        return redirect("/dashboard/assign-members")
+        return redirect("/dashboard/add-contribution")
     else:
-        form = forms.AssignMembers(user=response.user)
-        form.specify(project_id)
+        form = forms.AddContribution()
     arg = {"FullName": response.user.get_full_name, "form": form, "Task": task}
-    return render(response, "assign_members.html", arg)
+    return render(response, "add_contribution.html", arg)
 
+@login_required(login_url="/signin")
+def delete_members(response):
+    project_id = response.session["project_id"]
+    task_id = response.session["task"]
+    task = Task.objects.get(pk=task_id)
+    if response.method == 'POST':
+        form = forms.DeleteMembers(response.POST, response.FILES, user=response.user)
+        form.specify(project_id, task_id)
+
+        if form.is_valid():
+            instance = form.save(commit=False)
+            TaskStudents.objects.filter(task=task).get(student=instance.student).delete()
+
+        return redirect("/dashboard/delete-members")
+    else:
+        form = forms.DeleteMembers(user=response.user)
+        form.specify(project_id, task_id)
+    arg = {"FullName": response.user.get_full_name, "form": form, "Task": task}
+    return render(response, "delete_members.html", arg)
 
 @login_required(login_url="/signin")
 def close_task(response, task):

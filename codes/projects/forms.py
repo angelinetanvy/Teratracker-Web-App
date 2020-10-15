@@ -66,14 +66,38 @@ class CreateTask(forms.ModelForm):
 class AssignMembers(forms.ModelForm):
     class Meta:
         model = models.TaskStudents
-        fields = ['student', 'time']
+        fields = ['student']
 
     def __init__(self, *args, **kwargs):
         user = kwargs.pop('user')
         super(AssignMembers, self).__init__(*args, **kwargs)
 
-    def specify(self, selectedProject):
+    def specify(self, selectedProject, selectedTask):
         project = models.Project.objects.get(title=selectedProject)
-        self.fields['student'] = forms.ModelChoiceField(queryset=User.objects.filter(pk__in=models.ProjectStudents.objects.filter(project=project).values_list('student_id')))
+        StudentInTaskArray = models.TaskStudents.objects.filter(task=selectedTask).values_list('student_id')
+        ProjectStudentsArray = User.objects.filter(pk__in=models.ProjectStudents.objects.filter(project=project).values_list('student_id')).exclude(pk__in=StudentInTaskArray)
 
-        
+        self.fields['student'] = forms.ModelChoiceField(
+            queryset=ProjectStudentsArray)
+
+class DeleteMembers(forms.ModelForm):
+    class Meta:
+        model = models.TaskStudents
+        fields = ['student']
+
+    def __init__(self, *args, **kwargs):
+        user = kwargs.pop('user')
+        super(DeleteMembers, self).__init__(*args, **kwargs)
+
+    def specify(self, selectedProject, selectedTask):
+        project = models.Project.objects.get(title=selectedProject)
+        StudentInTaskArray = models.TaskStudents.objects.filter(task=selectedTask).values_list('student_id')
+        ProjectStudentsArray = User.objects.filter(pk__in=models.ProjectStudents.objects.filter(project=project).values_list('student_id')).filter(pk__in=StudentInTaskArray)
+
+        self.fields['student'] = forms.ModelChoiceField(
+            queryset=ProjectStudentsArray)
+
+class AddContribution(forms.ModelForm):
+    class Meta:
+        model = models.TaskStudents
+        fields = ['time']

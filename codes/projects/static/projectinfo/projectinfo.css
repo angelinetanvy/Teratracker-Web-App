@@ -3,8 +3,8 @@
 .container{
     margin-top: 70px;
     margin-left: 300px;
-    height: calc(100vh - 30px);
-    overflow-y: scroll;
+    /*height: calc(100vh - 30px);*/
+    /*overflow-y: scroll;*/
 }
 .bg-modal {
 	background-color: rgba(0, 0, 0, 0.8);
@@ -95,7 +95,7 @@ li{
 #percentBar:before{
     content:" ";
     position: absolute;
-    top: calc(100%+10px);
+    /*top: calc(100% + 10px);*/
     left: 0;
     width: 95%;
     height: 15px;

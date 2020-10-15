@@ -15,11 +15,11 @@
         <h2 class="task-name">{{ Task }}</h2>
 
         {% if Task.task_done == False %}
-            <h3 id="complete" style="background-color: red;"> Completed: {{ Task.task_done }} </h3>
+            <h3 id="complete" style="background-color: rgba(222, 60, 75, 1);"> Completed: {{ Task.task_done }} </h3>
         {% endif %}
 
         {% if Task.task_done == True %}
-            <h3 id="complete" style="background-color: green;"> Completed: {{ Task.task_done }} </h3>
+            <h3 id="complete" style="background-color: rgba(21, 79, 48, 1);"> Completed: {{ Task.task_done }} </h3>
         {% endif %}
 
         <h4 id="start"> Start: {{ Task.start_date }} {{ Task.start_time }}</h4>
@@ -43,11 +43,20 @@
         {% if checkTeacher == False %}
         <div id="buttons">
             <button id ="addContribution" onclick="location.href = '/dashboard/assign-members/'">
-                Add Contribution
+                Add Student
             </button>
 
+            {% if  inTask == True %}
+            <button id ="addContribution" onclick="location.href = '/dashboard/add-contribution/'">
+                Add Contribution
+            </button>
+            {% endif %}
             <button id="closeTask">
                 Close Task
+            </button>
+
+            <button id ="deleteTask" onclick="location.href = '/dashboard/delete-members/'">
+                Remove Student
             </button>
 
             <button id="deleteTask">

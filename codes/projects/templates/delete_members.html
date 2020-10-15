@@ -11,8 +11,8 @@
 <link rel="stylesheet" type="text/css" href="{% static 'assignMembers/assignMembers.css' %}">
     {% block header %} Assign Members to {{ Task.taskname }}{% endblock %}
     <div class="container">
-        
-        <form class="assign" action = "{% url 'assign-members' %}" method="post">
+
+        <form class="assign" action = "{% url 'delete-members' %}" method="post">
             {% csrf_token %}
             {% for field in form %}
                 <p>
@@ -21,7 +21,7 @@
                 </p>
             {% endfor %}
 
-                <button type="submit" id="assign" >Assign</button>
+                <button type="submit" id="assign" >Remove</button>
 
         </form>
         <form action = "{% url 'task-info' task=Task.id %}" method="post">
@@ -30,7 +30,6 @@
                 <button type="submit" id="back">Back</button>
 
         </form>
-{#        <h4><a class="btn" href="/dashboard/task-info/{{ Task.id }}/">Back</a></h4>#}
     </div>
 </body>
 {% endblock %}
