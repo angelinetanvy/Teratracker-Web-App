@@ -9,6 +9,8 @@ body{
     margin-top: 70px;
     margin-left: 300px;
     text-align: center;
+    height: calc(100vh - 30px);
+    overflow-y: scroll;
 }
 .bg-modal {
 	background-color: rgba(0, 0, 0, 0.8);

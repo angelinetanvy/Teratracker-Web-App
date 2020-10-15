@@ -72,7 +72,7 @@ class AssignMembers(forms.ModelForm):
         user = kwargs.pop('user')
         super(AssignMembers, self).__init__(*args, **kwargs)
 
-    def specify(self, selectedTask, selectedProject):
+    def specify(self, selectedProject):
         project = models.Project.objects.get(title=selectedProject)
         self.fields['student'] = forms.ModelChoiceField(queryset=User.objects.filter(pk__in=models.ProjectStudents.objects.filter(project=project).values_list('student_id')))
 

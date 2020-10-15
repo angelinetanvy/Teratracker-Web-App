@@ -159,6 +159,7 @@ def remove_students(response, project_id):
 
 @login_required(login_url="/signin")
 def create_task(response):
+    arg = {}
     project_id = response.session["project_id"]
     project = Project.objects.get(title=project_id)
     project_redirect = response.session['project_redirect']
@@ -167,11 +168,15 @@ def create_task(response):
         if form.is_valid():
             instance = form.save(commit=False)
             instance.sourceproject = project
-            instance.save()
-            return redirect('/dashboard/project-info/' + str(project_redirect) + '/')
+            if instance.due_date <= instance.start_date:
+                arg['err'] = "End date should be greater than start date"
+            else:
+                instance.save()
+                return redirect('/dashboard/project-info/' + str(project_redirect) + '/')
     else:
         form = forms.CreateTask()
-    arg = {"form": form, "project": project}
+    arg["form"] = form
+    arg["project"] = project
 
     return render(response, "create_task.html", arg)
 
@@ -233,7 +238,7 @@ def assign_members(response):
     students = User.objects.filter(pk__in=TaskStudents.objects.filter(task=task_id).values_list('student_id'))
     if response.method == 'POST':
         form = forms.AssignMembers(response.POST, response.FILES, user=response.user)
-        form.specify(task_id, project_id)
+        form.specify(project_id)
 
         student_id = form['student'].value()
         student = User.objects.get(pk=student_id)
@@ -248,7 +253,7 @@ def assign_members(response):
         return redirect("/dashboard/assign-members")
     else:
         form = forms.AssignMembers(user=response.user)
-        form.specify(task_id, project_id)
+        form.specify(project_id)
     arg = {"FullName": response.user.get_full_name, "form": form, "Task": task}
     return render(response, "assign_members.html", arg)
 
