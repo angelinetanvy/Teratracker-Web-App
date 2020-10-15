@@ -1,8 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
 
 .container{
-        margin-top: 70px;
-        margin-left: 300px;
+    margin-top: 70px;
+    margin-left: 300px;
+    height: calc(100vh - 30px);
+    overflow-y: scroll;
 }
 .bg-modal {
 	background-color: rgba(0, 0, 0, 0.8);
