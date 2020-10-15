@@ -176,6 +176,8 @@ def create_task(response):
                 return redirect('/dashboard/project-info/' + str(project_redirect) + '/')
     else:
         form = forms.CreateTask()
+
+    arg["FullName"] = response.user.get_full_name
     arg["form"] = form
     arg["project"] = project
 
@@ -219,6 +221,7 @@ def task_info(response, task):
 
     data = zip(members, prop)
     arg = {
+        "FullName": response.user.get_full_name,
         "Task": task,
         "Size": range(len(task_members)),
         "Data": data,
