@@ -11,24 +11,26 @@
 <link rel="stylesheet" type="text/css" href="{% static 'assignMembers/assignMembers.css' %}">
     {% block header %} Assign Members to {{ Task.taskname }}{% endblock %}
     <div class="container">
+        <h1 class="pageTitle" style="text-align: center";>Remove Students from {{ Task.taskname }} </h1>
+        <div style="text-align: center;">
+            <form class="assign" action = "{% url 'delete-members' %}" method="post">
+                {% csrf_token %}
+                {% for field in form %}
+                    <p>
+                        <b>{{field.label}} : </b>
+                        <span id="field">{{field}}</span>
+                    </p>
+                {% endfor %}
 
-        <form class="assign" action = "{% url 'delete-members' %}" method="post">
-            {% csrf_token %}
-            {% for field in form %}
-                <p>
-                    <b>{{field.label}} : </b>
-                    <span id="field">{{field}}</span>
-                </p>
-            {% endfor %}
+                    <button type="submit" id="assign" >Remove</button>
 
-                <button type="submit" id="assign" >Remove</button>
-
-        </form>
+            </form>
+        </div>
         <form action = "{% url 'task-info' task=Task.id %}" method="post">
             {% csrf_token %}
-
-                <button type="submit" id="back">Back</button>
-
+                <div style="text-align: center;">
+                    <button type="submit" id="back">Back</button>
+                </div>
         </form>
     </div>
 </body>

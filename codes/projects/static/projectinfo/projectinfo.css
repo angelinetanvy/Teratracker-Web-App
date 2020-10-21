@@ -1,17 +1,15 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
 
 .container{
-    margin-top: 70px;
-    margin-left: 300px;
-    /*height: calc(100vh - 30px);*/
-    /*overflow-y: scroll;*/
+    margin: 150px 20px 0 20px;
 }
+
 .bg-modal {
 	background-color: rgba(0, 0, 0, 0.8);
-	margin-left: -110px;
-	width: 100%;
+	margin-left: -20px;
+	width: 101%;
 	height: 100%;
-	position: absolute;
+	position: fixed;
 	top: 0;
 	display: none;
 	justify-content: center;
@@ -19,7 +17,7 @@
 }
 
 .modal-contents {
-	height: 150px;
+	height: auto;
 	width: 400px;
 	background-color: white;
 	text-align: center;
@@ -134,6 +132,7 @@ li{
     padding : 10px 15px 10px 15px;
     border-radius: 10px;
     margin: 0 0 0 0;
+    height: 120px;
 }
 
 #task-name{
@@ -168,7 +167,7 @@ li{
     color: rgba(2, 7, 93, 1);
 }
 
-button{
+button, .btn{
     text-align: center;
     padding: 15px 0px 15px 0px;
     margin: 5px 5px 5px 5px;
@@ -180,6 +179,10 @@ button{
     cursor: pointer;
     transition-duration: 0.4s;
     border: 0px;
+}
+
+.btn{
+    margin-left: 73px;
 }
 
 .button-center{

@@ -12,29 +12,42 @@
 </head>
 
 <body>
-
-    <input type="checkbox" id="check" checked>
     <header>
-        <label for="check">
-            <i class="fas fa-bars" id="sidebar_btn"></i>
-        </label>
-        <div class="center">
-            <h3 style="text-align: center">{% block header %}{% endblock %}</h3>
-        </div>
+        <h1 class="myName">{{FullName}}</h1>
+        <ul>
+            <li>
+                <a href="{% url 'signout' %}">
+                    <div class="icon">
+                        <i class="fas fa-sign-out-alt fa-lg"></i>
+                    </div>
+                    <div class="name">Sign Out</div>
+                </a>
+            </li>
+
+            <li>
+                <a href="{% url 'profile' %}">
+                    <div class="icon">
+                        <i class="fa fa-user-circle fa-lg" aria-hidden="true"></i>
+                    </div>
+                    <div class="name">My Profile</div>
+                </a>
+            </li>
+
+            <li>
+                <a href="{% url 'dashboard' %}">
+                    <div class="icon">
+                        <i class="fas fa-project-diagram fa-lg"></i>
+                    </div>
+                    <div class="name">My Projects</div>
+                </a>
+            </li>
+        </ul>
     </header>
-    <div class="sidebar">
-        <a href="{% url 'profile' %}" id="user">
-            <center>
-                <h4>{{ FullName }}</h4>
-            </center>
-        </a>
-        <a href="{% url 'dashboard' %}" id="projects"><i class="fas fa-project-diagram"></i><span>My Projects</span></a>
-        <a href="{% url 'signout' %}" id="signout"><i class="fas fa-sign-out-alt"></i><span>Sign Out</span></a>
-    </div>
 
     <div class="content">
         {% block content %}
         {% endblock %}
     </div>
+
 </body>
 </html>

@@ -1,8 +1,12 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
 
 .container{
-    margin-top: 70px;
-    margin-left: 300px;
+    margin: 0px 20px 0 20px;
+}
+
+.pageTitle{
+    margin: 100px 0 0 0;
+    color: rgba(2, 7, 93, 1);
 }
 
 body{
@@ -39,4 +43,9 @@ body{
 
 #backButton:active, #submit:active{
     transform: scale(0.75);
+}
+
+button{
+    outline: 0;
+    border: 0;
 }

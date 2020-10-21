@@ -13,13 +13,14 @@
 
 {% block header %} CREATE PROJECT {% endblock %}
     <div class="container">
+        <h1 class="pageTitle">CREATE PROJECT</h1>
         <form action="{% url 'create-project' %}" method="post">
             {% csrf_token %}
             {{ err }}
             {% for field in form %}
                 <p>
-                    <b>{{field.label}} : </b><br>
-                    <span id="field">{{field}}</span>
+                    <b id="field">{{field.label}} : </b><br>
+                    <span>{{field}}</span>
                 </p>
             {% endfor %}
             <div style="text-align: center;">

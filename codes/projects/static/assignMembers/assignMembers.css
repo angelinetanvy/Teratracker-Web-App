@@ -1,13 +1,17 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
 
 .container{
-    margin-top: 70px;
-    margin-left: 300px;
+    margin: 150px 20px 0 40px;
+}
+
+.pageTitle{
+    margin: -50px 0 0 0;
+    color: rgba(2, 7, 93, 1);
 }
 
 body{
     font-family: 'Montserrat', sans-serif;
-    color: rgba(24, 90, 55, 1);
+    color: rgba(2, 7, 93, 1);
 }
 
 #assign{
@@ -17,6 +21,11 @@ body{
     padding: 15px 15px 15px 15px;
     border-radius: 30px;
     margin: 0 0 10px -10px;
+}
+
+button{
+    outline: 0;
+    border: 0;
 }
 
 #back{
