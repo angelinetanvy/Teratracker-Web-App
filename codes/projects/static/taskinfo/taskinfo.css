@@ -140,7 +140,8 @@ li{
     left: 0;
     width: 95%;
     height: 15px;
-    background-color: rgba(40, 94, 164, 0.8);
+    /*background-color: rgba(2, 7, 93, 1);*/
+    background-color: rgba(255, 255, 255, 0.5);
     border-radius: 1000px;
 }
 
@@ -155,6 +156,19 @@ li{
     animation-duration: 1s;
     animation-fill-mode: forwards;
     animation-name: bar;
+}
+
+.plannedBar{
+    content: " ";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 15px;
+    background-color: rgba(40, 94, 164, 1);
+    border-radius: 1000px;
+    /*animation-duration: 1s;*/
+    /*animation-fill-mode: forwards;*/
+    /*animation-name: bar;*/
 }
 
 @keyframes bar{

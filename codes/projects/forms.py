@@ -66,7 +66,7 @@ class CreateTask(forms.ModelForm):
 class AssignMembers(forms.ModelForm):
     class Meta:
         model = models.TaskStudents
-        fields = ['student']
+        fields = ['student', 'plan_time']
 
     def __init__(self, *args, **kwargs):
         user = kwargs.pop('user')
@@ -77,8 +77,7 @@ class AssignMembers(forms.ModelForm):
         StudentInTaskArray = models.TaskStudents.objects.filter(task=selectedTask).values_list('student_id')
         ProjectStudentsArray = User.objects.filter(pk__in=models.ProjectStudents.objects.filter(project=project).values_list('student_id')).exclude(pk__in=StudentInTaskArray)
 
-        self.fields['student'] = forms.ModelChoiceField(
-            queryset=ProjectStudentsArray)
+        self.fields['student'] = forms.ModelChoiceField(queryset=ProjectStudentsArray)
 
 class DeleteMembers(forms.ModelForm):
     class Meta:

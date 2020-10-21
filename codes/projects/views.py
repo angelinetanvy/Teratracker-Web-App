@@ -187,7 +187,10 @@ def create_task(response):
 @login_required(login_url="/signin")
 def task_info(response, task):
     members = []
+    planned_prop = []
     prop = []
+    plan = []
+    time = []
     task = Task.objects.filter(pk=task)[0]
     project = task.sourceproject
     task_members = TaskStudents.objects.filter(task_id=task.id).values_list('student_id')
@@ -201,25 +204,35 @@ def task_info(response, task):
     tasks = TaskStudents.objects.filter(task_id=task.id)
     task_time = []
     total_tasktime = 0
+    planned_time = []  # planned time for each student
+    total_planned_time = 0  # total planned time for the task
 
     for t in tasks:
         if t.task.sourceproject == project:
+            planned_time.append(t.plan_time)
             task_time.append(t.time)
 
     for i in range(len(task_time)):
+        total_planned_time += int(str(planned_time[i]))
         total_tasktime += int(str(task_time[i]))
 
     for i in range(len(task_members)):
-        if total_tasktime > 0:
-            memberProportion = round(int(str(task_time[i])) / total_tasktime * 100, 2)
+        if total_planned_time > 0:
+            memberProportion = round(int(str(task_time[i])) / total_planned_time * 100, 2)
+            memberPlannedProportion = round(int(str(planned_time[i])) / total_planned_time * 100, 2)
         else:
+            memberPlannedProportion = 0
             memberProportion = 0
-        prop.append(memberProportion)
-        members.append(
-            str(User.objects.get(id=task_members[i][0]).get_full_name()) + " (" + str(task_time[i]) + " hours) (" + str(
-                memberProportion) + "%)")
 
-    data = zip(members, prop)
+        prop.append(memberProportion)
+        planned_prop.append(memberPlannedProportion)
+        members.append(
+            str(User.objects.get(id=task_members[i][0]).get_full_name()) +
+            " (" + str(memberProportion) + "%)")
+        plan.append(TaskStudents.objects.get(student_id=task_members[i]).plan_time)
+        time.append(TaskStudents.objects.get(student_id=task_members[i]).time)
+
+    data = zip(members, prop, planned_prop, plan, time)
     arg = {
         "FullName": response.user.get_full_name,
         "Task": task,
