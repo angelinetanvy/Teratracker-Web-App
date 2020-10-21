@@ -11,7 +11,9 @@
 <link rel="stylesheet" type="text/css" href="{% static 'assignstudents/assignstudents.css' %}">
 
     {% block header %} Assign Students to {{ Project.title }} {% endblock %}
+
     <div class="container">
+        <h1 class="pageTitle"> Assign Students to {{ Project.title }} </h1>
         <form class="assign" action = "{% url 'assign-students' project_id=Project.id %}" method="post">
             {% csrf_token %}
             {{ form }}

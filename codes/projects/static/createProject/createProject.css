@@ -1,8 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
 
 .container{
-    margin-top: 70px;
-    margin-left: 300px;
+    margin: 70px 20px 0 20px;
+}
+
+.pageTitle{
+    color: rgba(2, 7, 93, 1);
 }
 
 body{
@@ -43,4 +46,13 @@ body{
 #create:hover, #cancel:hover{
     box-shadow: 0 5px 5px 0 rgba(0,0,0,0.24), 0 5px 10px 0 rgba(0,0,0,0.19);
     transform: scale(1.025);
+}
+
+#field{
+    color: rgba(2, 7, 93, 1);
+}
+
+button{
+    outline: 0;
+    border: 0;
 }

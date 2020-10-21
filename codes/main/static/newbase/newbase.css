@@ -1,121 +1,44 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+
 body{
     margin: 0;
     padding: 0;
-    font-family: Roboto, sans-serif;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+}
+
+.myName{
+    color: white;
+    float: left;
+    padding: 0 0 0 0;
+    margin: 0 0 0 0;
 }
 
 header{
     position: fixed;
-    background: lightgray;
+    background: rgba(2, 7, 93, 1);
     padding: 20px;
     width: 100%;
     z-index: 10;
-    /*height: 30px;*/
-    /*top: 0;*/
 }
 
-.center h3{
-    color: black;
-    margin: 0;
-    text-transform: uppercase;
-    font-size: 22px;
-    font-weight: 900;
+ul li{
+    list-style: none;
 }
 
-.sidebar{
-    background: lightgray;
-    margin-top: 50px;
-    padding-top: 30px;
-    position: fixed;
-    left: 0;
-    width: 250px;
-    height: 100%;
-    transition: 0.5s;
-    transition-property: left;
-}
-
-.sidebar .profile_image {
-    width: 100px;
-    height: 100px;
-    border-radius: 100px;
-    margin-bottom: 10px;
-}
-
-
-.sidebar a{
-    color: black;
-    display: block;
-    width: 100%;
-    line-height: 60px;
+ul li a{
     text-decoration: none;
-    padding-left: 40px;
-    box-sizing: border-box;
-    transition: 0.5s;
-    transition-property: background;
+    color: white;
+    float: right;
+    margin: 0 50px 0 0;
 }
 
-.sidebar #user{
-    color: black;
-    margin-top: 0;
-    margin-bottom: 20px;
-    padding-left: 0;
-    transition: 0.5s;
-    transition-property: display;
+ul li a:hover{
+    color: rgba(146, 174, 221, 1);
 }
 
-.sidebar a:hover{
-    background: darkgray;
-}
-
-.sidebar i{
-    padding-right: 10px;
-}
-
-label #sidebar_btn{
-    z-index: 1;
-    color: darkgray;
-    position: fixed;
-    cursor: pointer;
-    left: 20px;
-    font-size: 20px;
-    margin: 5px 0;
-    transition: 0.5s;
-    transition-property: color;
-}
-
-label #sidebar_btn:hover{
-    color: black;
-}
-
-#check:checked ~ .sidebar{
-    left: -190px;
-}
-
-#check:checked ~ .sidebar a span{
-    display: none;
-}
-
-#check:checked ~ .sidebar #user{
-    display: none;
-}
-
-#check:checked ~ .sidebar a{
-    font-size: 20px;
-    margin-left: 170px;
-    width: 80px;
-}
-
-#check:checked ~ .content{
-    margin-left: -190px;
-}
-
-.content{
-    margin-left: 0;
-    background: white;
-    transition: 0.5s;
-    transition-property: margin-left;
-}
-
-#check{
-    display: none
+.icon{
+    text-align: center;
+    padding-bottom: 10px;
+    margin-top: -20px;
 }

@@ -11,11 +11,14 @@
 <link rel="stylesheet" type="text/css" href="{% static 'removeStudents/removeStudents.css' %}">
     {% block header %} Remove Students from {{ Project.title }} {% endblock %}
     <div class="container">
-        <form class="remove" action = "{% url 'remove-students' project_id=Project.id %}" method="post">
-            {% csrf_token %}
-            {{ form }}
-            <button id="submit" type="submit">Remove</button>
-        </form>
+        <h1 class="pageTitle" style="text-align: center;"> Remove Students from {{ Project.title }} </h1>
+        <div style="text-align: center;">
+            <form class="remove" action = "{% url 'remove-students' project_id=Project.id %}" method="post">
+                {% csrf_token %}
+                {{ form }}
+                <button id="submit" type="submit">Remove</button>
+            </form>
+        </div>
         <h4 style="color: red">{{ err }}</h4>
         <form class="back" action = "{% url 'project-info' project=Project.id %}" method="post">
             {% csrf_token %}

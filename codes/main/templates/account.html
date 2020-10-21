@@ -11,16 +11,16 @@
 <p id="title"><b>Your Account</b></p>
 {% block header %} Your Account {% endblock %}
 <div class="container">
-    <p style="font-size: 30px; text-transform: uppercase; margin-bottom: -25px"><b>{{user}}</b></p>
-    <p style="font-size: 25px; margin-bottom: 50px">{{ UserType }}</p>
+    <p style="font-size: 30px;  margin-bottom: -25px"><b>Welcome to Your Profile Page!</b></p>
+    <p style="font-size: 25px; margin-bottom: 50px">{{FullName}}</p>
     <p></p>
-    <p style="font-size: 18px">Account Type :</p>
+    <p id="subheading">Account Type :</p>
     <p class = "data">{{UserType}}</p>
-    <p style="font-size: 18px">First name :</p>
+    <p id="subheading">First name :</p>
     <p class = "data">{{user.first_name}}</p>
-    <p style="font-size: 18px">Last name  :</p>
+    <p id="subheading">Last name  :</p>
     <p class = "data">{{user.last_name}}</p>
-    <p style="font-size: 18px">Email      :</p>
+    <p id="subheading">Email      :</p>
     <p class = "data">{{user.email}}</p>
 </div>
 </body>

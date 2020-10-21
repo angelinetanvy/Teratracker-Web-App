@@ -6,17 +6,14 @@ body{
 }
 
 .container{
-    margin-top: 70px;
-    margin-left: 300px;
-    text-align: center;
-    /*height: calc(100vh - 30px);*/
-    /*overflow-y: scroll;*/
+    margin: 150px 20px 0 20px;
 }
+
 .bg-modal {
 	background-color: rgba(0, 0, 0, 0.8);
-	margin-left: -110px;
-	width: 100%;
-	height: 100%;
+	margin-left: -20px;
+	width: 101%;
+	height: auto;
 	position: fixed;
 	top: 0;
 	display: none;
@@ -26,7 +23,7 @@ body{
 }
 
 .modal-contents {
-	height: 150px;
+	height: auto;
 	width: 400px;
 	background-color: white;
 	text-align: center;
@@ -53,18 +50,19 @@ body{
 
 .delete-bg-modal{
 	background-color: rgba(0, 0, 0, 0.8);
-	margin-left: -110px;
-	width: 100%;
-	height: 100%;
-	position: absolute;
+	margin-left: -20px;
+	width: 101%;
+	height: auto;
+	position: fixed;
 	top: 0;
 	display: none;
 	justify-content: center;
 	align-items: center;
+    bottom: 0;
 }
 
 .delete-modal-contents{
-	height: 150px;
+	height: auto;
 	width: 400px;
 	background-color: white;
 	text-align: center;
@@ -136,11 +134,9 @@ li{
 #percentBar:before{
     content:" ";
     position: absolute;
-    /*top: calc(100% + 10px);*/
     left: 0;
     width: 95%;
     height: 15px;
-    /*background-color: rgba(2, 7, 93, 1);*/
     background-color: rgba(255, 255, 255, 0.5);
     border-radius: 1000px;
 }
@@ -166,9 +162,6 @@ li{
     height: 15px;
     background-color: rgba(40, 94, 164, 1);
     border-radius: 1000px;
-    /*animation-duration: 1s;*/
-    /*animation-fill-mode: forwards;*/
-    /*animation-name: bar;*/
 }
 
 @keyframes bar{
@@ -179,8 +172,25 @@ li{
     display: inline;
 }
 
+button, .btn{
+    outline: 0;
+    border: 0;
+    text-align: center;
+    padding: 15px 0px 15px 0px;
+    margin: 5px 5px 5px 5px;
+    width: 250px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 25px;
+    cursor: pointer;
+    transition-duration: 0.4s;
+    border: 0px;
+}
+
 #addContribution, #closeTask{
     background-color: navy;
+    font-size: 14px;
+    width: 180px;
     color: white;
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
@@ -190,8 +200,10 @@ li{
     border: none;
 }
 
-#deleteTask{
+#deleteTask, #removeStudent{
     background-color: rgba(222, 60, 75, 1);
+    font-size: 14px;
+    width: 180px;
     color: black;
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
@@ -203,12 +215,15 @@ li{
 
 #backButton{
     background-color: rgba(211, 211,211, 1);
+    font-size: 14px;
+    width: 70px;
+    height: auto;
     color: black;
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
     padding: 15px 15px 15px 15px;
     margin: 5px 5px 5px 5px;
-    border-radius: 30px;
+    border-radius: 1000px;
     border: none;
 }
 
@@ -218,12 +233,12 @@ li{
     box-shadow: 0 5px 5px 0 rgba(0,0,0,0.24), 0 5px 10px 0 rgba(0,0,0,0.19);
 }
 
-#deleteTask:hover{
+#deleteTask:hover #removeStudent:hover{
     background-color: rgba(211,211,211,1);
     color: rgba(222, 60, 75, 1);
     box-shadow: 0 5px 5px 0 rgba(222, 60, 75,0.24), 0 5px 10px 0 rgba(222, 60, 75,0.19);
 }
 
-#addContribution:active, #closeTask:active, #deleteTask:active, #backButton:active{
+#addContribution:active, #closeTask:active, #deleteTask:active, #backButton:active, #removeStudent:active{
     transform: scale(0.75);
 }

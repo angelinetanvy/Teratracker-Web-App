@@ -1,12 +1,15 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+
+body{
+    font-family: 'Montserrat', sans-serif;
+}
+
 .container{
-    margin-top: 70px;
-    margin-left: 300px;
-    margin-right: 20px;
+    margin: 70px 20px 20px 20px;
 }
 
 #Temp{
     text-align: center;
-    font-family: sans-serif;
     color: navy;
 }
 
@@ -47,7 +50,6 @@
 
 #projectTitle{
     font-size: 22px;
-    font-family: sans-serif;
     font-weight: Bold;
     text-align: center;
     color: white;
@@ -75,7 +77,6 @@
 #supervised{
     font-size: 14px;
     font-weight: bold;
-    font-family: Arial;
     color: black;
 }
 
@@ -88,4 +89,7 @@
     text-decoration:none;
 }
 
-
+button{
+    outline: 0;
+    border: 0;
+}
