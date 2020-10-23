@@ -66,7 +66,10 @@ class CreateTask(forms.ModelForm):
 class AssignMembers(forms.ModelForm):
     class Meta:
         model = models.TaskStudents
-        fields = ['student', 'plan_time']
+        fields = ['student', 'plan_percent']
+        labels = {
+            'plan_percent': _('Planned Proportion (%)')
+        }
 
     def __init__(self, *args, **kwargs):
         user = kwargs.pop('user')
@@ -98,5 +101,8 @@ class DeleteMembers(forms.ModelForm):
 
 class AddContribution(forms.ModelForm):
     class Meta:
+        labels = {
+            'time': _('Time (Hours)')
+        }
         model = models.TaskStudents
         fields = ['time']

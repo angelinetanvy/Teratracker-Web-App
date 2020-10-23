@@ -30,17 +30,17 @@
 
 
         <div id="contribution">
-        {% for mem, prop, planned_prop, plan, time in Data %}
+        {% for mem, prop, planned_prop, plan, time, time_percent in Data %}
             <ul>
-                <li id="mem"> {{ mem }} </li>
-                <h7> Planned Time: {{ plan }} Hours</h7>
-                <h7> Actual Time: {{ time }} Hours</h7>
+                <li id="mem"> {{ mem }} {{ time }} hours</li>
+                <h7> Planned Percentage: {{ plan }}% </h7>
+                <h7> Actual Percentage: {{ time_percent }}% </h7>
                 <li id="percentBar">
-                    <div class="plannedBar" style="width: calc(100% * {{planned_prop}} / 105);"></div>
-                    {% if time > plan %}
+                    <div class="plannedBar" style="width: calc(100% * {{ planned_prop }} / 105);"></div>
+                    {% if time_percent > plan %}
                         <div class="movingBar" style="width: calc(100% * {{prop}} / 105); max-width: 95%; background-color: rgba(222, 60, 75, 1);"></div>|
                     {% endif %}
-                    {% if time <= plan %}
+                    {% if time_percent <= plan %}
                         <div class="movingBar" style="width: calc(100% * {{prop}} / 105);"></div>|
                     {% endif %}
                 </li>

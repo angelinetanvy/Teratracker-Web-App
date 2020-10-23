@@ -50,7 +50,7 @@ class Task(models.Model):
 class TaskStudents(models.Model):
     student = models.ForeignKey(User, default=None, on_delete=models.CASCADE)
     task = models.ForeignKey(Task, default=None, on_delete=models.CASCADE)
-    plan_time = models.PositiveIntegerField(default=0)
+    plan_percent = models.PositiveIntegerField(default=0)
     time = models.PositiveIntegerField(default=0)
 
     class Meta:
