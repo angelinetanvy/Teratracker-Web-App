@@ -219,9 +219,12 @@ def task_info(response, task):
         if total_tasktime > 0:
             memberProportion = round(int(str(task_time[i])) / total_tasktime * 100, 2)
             memberPlannedProportion = round(planned_percent[i], 2)
+            time_percent.append(
+                round(TaskStudents.objects.get(student_id=task_members[i], task=task).time / total_tasktime * 100, 2))
         else:
             memberPlannedProportion = round(planned_percent[i], 2)
             memberProportion = 0
+            time_percent.append(0)
 
         prop.append(memberProportion)
         planned_prop.append(memberPlannedProportion)
@@ -230,7 +233,6 @@ def task_info(response, task):
             " (" + str(memberProportion) + "%)")
         plan.append(TaskStudents.objects.get(student_id=task_members[i], task=task).plan_percent)
         time.append(TaskStudents.objects.get(student_id=task_members[i], task=task).time)
-        time_percent.append(round(TaskStudents.objects.get(student_id=task_members[i], task=task).time/total_tasktime * 100, 2))
 
     data = zip(members, prop, planned_prop, plan, time, time_percent)
     arg = {
