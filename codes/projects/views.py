@@ -286,19 +286,36 @@ def assign_members(response):
 def add_contribution(response):
     task_id = response.session["task"]
     task = Task.objects.get(pk=task_id)
-    students = User.objects.filter(pk__in=TaskStudents.objects.filter(task=task_id).values_list('student_id'))
+    # students = User.objects.filter(pk__in=TaskStudents.objects.filter(task=task_id).values_list('student_id'))
     if response.method == 'POST':
         form = forms.AddContribution(response.POST, response.FILES)
         student_id = response.user.id
-        student = User.objects.get(pk=student_id)
-        if student in students:
-            time = TaskStudents.objects.filter(task=task).get(student=student_id).time + int(form['time'].value())
-            TaskStudents.objects.filter(student=student_id, task=task).update(time=time)
+        # student = User.objects.get(pk=student_id)
+        # if student in students:
+        time = TaskStudents.objects.filter(task=task).get(student=student_id).time + int(form['time'].value())
+        TaskStudents.objects.filter(student=student_id, task=task).update(time=time)
         return redirect("/dashboard/add-contribution")
     else:
         form = forms.AddContribution()
     arg = {"FullName": response.user.get_full_name, "form": form, "Task": task}
     return render(response, "add_contribution.html", arg)
+
+@login_required(login_url="/signin")
+def delete_contribution(response):
+    task_id = response.session["task"]
+    task = Task.objects.get(pk=task_id)
+    if response.method == 'POST':
+        form = forms.AddContribution(response.POST, response.FILES)
+        student_id = response.user.id
+        time = TaskStudents.objects.filter(task=task).get(student=student_id).time - int(form['time'].value())
+        if time < 0:
+            time = 0
+        TaskStudents.objects.filter(student=student_id, task=task).update(time=time)
+        return redirect("/dashboard/delete-contribution")
+    else:
+        form = forms.AddContribution()
+    arg = {"FullName": response.user.get_full_name, "form": form, "Task": task}
+    return render(response, "delete_contribution.html", arg)
 
 @login_required(login_url="/signin")
 def delete_members(response):

@@ -39,6 +39,7 @@ urlpatterns = [
     path('dashboard/task-info/<int:task>/confirmation/', project_views.close_task, name='confirmation'),
     path('dashboard/assign-members/', project_views.assign_members, name='assign-members'),
     path('dashboard/add-contribution/', project_views.add_contribution, name='add-contribution'),
+    path('dashboard/delete-contribution/', project_views.delete_contribution, name='delete-contribution'),
     path('dashboard/delete-members/', project_views.delete_members, name='delete-members'),
     path('', include("django.contrib.auth.urls"))
 ]
